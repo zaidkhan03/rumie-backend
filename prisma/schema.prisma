@@ -1,0 +1,1596 @@
+generator client {
+  provider        = "prisma-client-js"
+  // binaryTargets = ["linux-arm64-openssl-1.0.x"]
+  binaryTargets   = ["native", "linux-arm64-openssl-1.0.x", "rhel-openssl-3.0.x"]
+  previewFeatures = ["clientExtensions"]
+}
+
+// generator erd {
+//   provider = "prisma-erd-generator"
+// }
+
+generator typegraphql {
+  provider = "typegraphql-prisma"
+  // output   = "../server/generated/type-graphql"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("MONGO_CONNECTION_STRING")
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+model EduInstitute {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  name         String
+  domain       String   @unique
+  logo         String?
+  city         String
+  state        String
+  address      String
+  zip          String
+  location     String?
+  active       Boolean?
+  passCode     String?
+  isRegistered Boolean?
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+  students     User[]   @relation("StudentsEnrolled")
+  campusChats  CampusChat[] @relation("campusChats")
+  productListings ProductListing[] @relation("uploaderEduInstitute")
+}
+
+enum Role {
+  USER
+}
+
+type Image {
+  name      String
+  order     Int?
+  mainImage Boolean?
+}
+
+enum Platform {
+  ANDROID
+  IOS
+  WEB
+}
+
+type UserSession {
+  token       String
+  pushToken   String?
+  deviceModel String
+  platform    Platform
+  valid       Boolean  @default(true)
+  started     DateTime @default(now())
+  lastSeen    DateTime @default(now())
+}
+
+type Sizes {
+  shoes     String
+  upperWear String
+  lowerWear String
+}
+
+enum AddressType {
+  COLLEGE
+  RESIDENCE
+  PUBLIC
+}
+
+type Address {
+  id          String
+  name        String
+  phoneNo     String
+  address1    String
+  address2    String?
+  zip         String
+  state       String
+  city        String
+  country     String
+  addressType AddressType
+}
+
+enum MessageType {
+  TEXT
+  IMAGE
+  PRODUCT_BUBBLE
+  DEAL_MEETUP_OFFER_BUBBLE
+  DEAL_OFFER_BUBBLE
+  COUNTER_SELLER_OFFER_BUBBLE
+  RENT_OFFER_BUBBLE
+  INFO_SYSTEM_MESSAGE
+  PAYMENT_CONFIRMATION_SYSTEM_MESSAGE
+  ORDER_UPDATE_SYSTEM_MESSAGE
+  PAYMENT_LINK_MESSAGE
+  PAYMENT_LINK_UPDATE_MESSAGE
+  LOCAL_ORDER_UPDATE_MESSAGE
+  LOCAL_ORDER_HANDED_OVER_MESSAGE
+}
+
+// productBubble                   ProductBubble
+// dealMeetupOfferBubble           DealMeetupOfferBubble
+// dealOfferBubble                 DealOfferBubble
+// counterSellerOfferBubble        CounterSellerOfferBubble
+// rentOfferBubble                 RentOfferBubble
+// infoSystemMessage               InfoSystemMessage
+// paymentConfirationSystemMessage PaymentConfirmationSystemMessage
+// orderUpdateSystemMessage        OrderUpdateSystemMessage
+
+model User {
+  id                    String               @id @default(auto()) @map("_id") @db.ObjectId
+  firstName             String
+  lastName              String
+  email                 String
+  countryCode           String
+  phoneNumber           String
+  phoneNumberVerified   Boolean              @default(false)
+  roles                 Role[]               @default([])
+  sessions              UserSession[]
+  password              String? // password not set (computed result)
+  referrer              String?
+  gender                Gender?
+  sizes                 Sizes?
+  displayPicture        String?
+  personalEmail         String?
+  images                Image[]
+  eduInstitute          EduInstitute?        @relation("StudentsEnrolled", fields: [eduInstituteId], references: [id])
+  eduInstituteId        String?              @db.ObjectId
+  shoppingPreferenceIds String[]             @db.ObjectId
+  shoppingPreferences   ShoppingPreference[] @relation(fields: [shoppingPreferenceIds], references: [id])
+  hobbyIds              String[]             @db.ObjectId
+  hobbies               Hobby[]              @relation(fields: [hobbyIds], references: [id])
+  about                 String?
+  createdAt             DateTime             @default(now())
+  updatedAt             DateTime             @updatedAt
+  addressBook           Address[]
+  productListings       ProductListing[]     @relation("uploader")
+  reportedProducts      ProductReport[]      @relation("reportedProducts")
+  wishlistIds           String[]             @db.ObjectId
+  wishlist              ProductListing[]     @relation("wishlist", fields: [wishlistIds], references: [id])
+  savedDealIds          String[]             @db.ObjectId
+  savedDeals            Deal[]               @relation("savedDeals", fields: [savedDealIds], references: [id])
+  conversationIds       String[]             @db.ObjectId
+  conversations         Conversation[]       @relation("participants", fields: [conversationIds], references: [id])
+  dmIds                 String[]             @db.ObjectId
+  stripe                UserStripe?
+  orderIds              String[]             @db.ObjectId
+  followedBy            User[]               @relation("follow", fields: [followedByIDs], references: [id])
+  followedByIDs         String[]             @db.ObjectId
+  following             User[]               @relation("follow", fields: [followingIDs], references: [id])
+  followingIDs          String[]             @db.ObjectId
+  legacyId              String?
+  blackListed           Boolean              @default(false)
+  addedManually         Boolean?
+  altSignup             AltSignup?
+  registrationPlatform  Platform?
+  instagramUsername     String?
+  referralRockCode      String?
+  deactivated           Boolean?             @default(false)
+  signupV               String?
+  isParent              Boolean?
+}
+
+enum AppLovingAdType {
+  BANNER
+  NATIVE
+}
+
+enum AppLovinPosition {
+  HOME_PAGE_BANNER
+  PRODUCT_PAGE_BANNER
+  SELLER_PAGE_BANNER
+}
+
+model AppLovin {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  alias     String
+  adUnitId  String
+  type      AppLovingAdType
+  position  AppLovinPosition
+  active    Boolean
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+enum PushNotificationCampaignStatus {
+  SCHEDULED
+  PROCESSED
+  CANCELLED
+}
+
+enum UserListedFilter {
+  YES
+  NO
+  ONLY_RENTALS
+  ONLY_MARKETPLACE
+}
+
+enum UserGenderFilter {
+  ALL
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum BooleanChoice {
+  YES
+  NO
+}
+
+type PushNotificationCampaignFilters {
+  userGender     UserGenderFilter
+  userListed     UserListedFilter?
+  userRentedEver BooleanChoice?
+  userBoughtEver BooleanChoice?
+}
+
+enum PushNotificationSenderListType {
+  ALL_UNIVERSITIES
+  ONLY_SELECTED_UNIVERSTIES
+  ALL_BUT_EXCLUDED_UNIVERSITIES
+}
+
+enum EduSelectionListType {
+  ALL_UNIVERSITIES
+  ONLY_SELECTED_UNIVERSTIES
+  ALL_BUT_EXCLUDED_UNIVERSITIES
+}
+
+type PushNotificationData {
+  title     String
+  body      String
+  icon      String?
+  cardImage String?
+}
+
+model PushNotificationCampaign {
+  id                    String                          @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  notification          PushNotificationData
+  senderListType        PushNotificationSenderListType
+  selectedEduInstitutes EduInstituteSelectOption[]
+  filters               PushNotificationCampaignFilters
+  status                PushNotificationCampaignStatus
+  createdAt             DateTime                        @default(now())
+  updatedAt             DateTime                        @updatedAt
+}
+
+enum AppPopupTemplate {
+  WITHOUT_COUPON
+  WITH_COUPON
+}
+
+model AppPopup {
+  id                    String                     @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  frequency             Int
+  selectionListType     EduSelectionListType
+  selectedEduInstitutes EduInstituteSelectOption[]
+  filters               AppPopupFilters
+  template              AppPopupTemplate
+  image                 String
+  description           String
+  ctaUrl                String
+  ctaText               String
+  couponCode            String                     @default("")
+  delayInSeconds        Int
+  active                Boolean
+  validity              DateRange
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+}
+
+enum AnnouncementBannerPosition {
+  HOME_PAGE
+  HOME_PAGE_TOP
+  HOME_PAGE_BOTTOM
+  PRODUCT_DETAIL_PAGE
+}
+
+enum InternalCTA {
+  REFERRAL
+  DEALS
+  MARKETPLACE
+  RENTAL
+  USER_PROFILE
+  UPLOAD_PRODUCT
+  EVENT_TICKETS_CATEGORY
+}
+
+model AnnouncementBanner {
+  id             String                     @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  position       AnnouncementBannerPosition
+  hasInternalCTA Boolean
+  internalCTA    InternalCTA?
+  image          String
+  active         Boolean
+  createdAt      DateTime                   @default(now())
+  updatedAt      DateTime                   @updatedAt
+}
+
+// /referal page of a user
+// /deals listing page
+// /category listing page
+// /marketplace isting page
+// /rental listing page
+// /user profile page
+// /upload product page
+// /user message listing pag
+
+type AppPopupFilters {
+  userGender UserGenderFilter
+}
+
+enum AltSignupStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+type AltSignup {
+  idProof           String
+  uploadedAt        DateTime        @default(now())
+  tempEmailAllotted String
+  emailClaimed      String
+  status            AltSignupStatus
+  remarks           String
+}
+
+model Notification {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String           @db.ObjectId
+  // belongsTo     User             @relation("notifications", fields: [belongingToId], references: [id])
+  type      NotificationType
+  payload   Json
+  title     String
+  body      String
+  createdAt DateTime         @default(now())
+  expiresAt DateTime?
+  isRead    Boolean          @default(false)
+}
+
+enum NotificationType {
+  OFFER
+  RENTAL
+  ORDER
+  PAYOUT
+  SYSTEM
+  PERSONAL_DM
+  CAMPUS_CHAT_REPLY
+}
+
+enum RentalNotificationType {
+  STARTED
+  ENDED
+}
+
+type RentalNotificationPayload {
+  type           RentalNotificationType
+  conversationId String                 @db.ObjectId
+  orderId        String                 @db.ObjectId
+  listingTitle   String
+}
+
+enum OfferNotificationType {
+  RECEIVED
+  WITHDRAWN
+  REJECTED
+  ACCEPTED
+  COUNTERED
+}
+
+type OfferNotificationPayload {
+  type                     OfferNotificationType
+  conversationId           String                @db.ObjectId
+  otherParticipantFullName String
+  otherParticipantUserId   String                @db.ObjectId
+}
+
+enum OrderNotificationType {
+  CONFIRMED
+  LABEL_GENERATED
+  IN_TRANSIT
+  DELIVERED
+  DELIVERY_ATTEMPTED
+  CANCELLED
+}
+
+type OrderNotificationPayload {
+  type           OrderNotificationType
+  conversationId String                @db.ObjectId
+  orderId        String                @db.ObjectId
+  listingTitle   String
+}
+
+enum PayoutNotificationType {
+  PROCESSED
+}
+
+type PayoutNotificationPayload {
+  type           PayoutNotificationType
+  conversationId String                 @db.ObjectId
+  orderId        String                 @db.ObjectId
+  payoutID       String                 @db.ObjectId
+}
+
+enum SystemNotificationType {
+  CONVERSATION_RELATED
+  ORDER_RELATED
+  PAYOUT_RELATED
+  PROFILE_RELATED
+}
+
+type SystemNotificationPayload {
+  type           SystemNotificationType
+  conversationId String?                @db.ObjectId
+  orderId        String?                @db.ObjectId
+  payoutID       String?                @db.ObjectId
+  userID         String?                @db.ObjectId
+}
+
+type CampusChatReplyNotficationPayload {
+  messageId      String
+  commentId      String
+  commentedBy    String
+  commentExcerpt String
+}
+
+model NotificationPayloads {
+  id              String                            @id @default(auto()) @map("_id") @db.ObjectId
+  offer           OfferNotificationPayload
+  order           OrderNotificationPayload
+  payout          PayoutNotificationPayload
+  system          SystemNotificationPayload
+  rental          RentalNotificationPayload
+  campusChatReply CampusChatReplyNotficationPayload
+}
+
+enum SupportTicketType {
+  General
+  OrderRelated
+  ProductRelated
+}
+
+enum SupportTicketParticipant {
+  ADMIN
+  USER
+}
+
+type SupportMessage {
+  id        String
+  sender    SupportTicketParticipant
+  text      String
+  createdAt DateTime                 @default(now())
+}
+
+model SupportTicket {
+  id               String                   @id @default(auto()) @map("_id") @db.ObjectId
+  type             SupportTicketType
+  issue            String
+  messages         SupportMessage[]
+  initiator        SupportTicketParticipant
+  associatedUserId String                   @db.ObjectId
+  resolved         Boolean                  @default(false)
+  concernedId      String?                  @db.ObjectId
+  concernedOrder   Order?                   @relation("concernedId", fields: [concernedId], references: [id])
+  userLastSeen     String?                  @default("DEFAULT")
+  adminLastSeen    String?                  @default("DEFAULT")
+  createdAt        DateTime                 @default(now())
+  updatedAt        DateTime                 @updatedAt
+}
+
+enum SellerPayoutStatus {
+  PENDING
+  COMPLETE
+  CANCELLED
+  SENT
+}
+
+type OrderPayout {
+  status     SellerPayoutStatus
+  creditedAt DateTime?
+  // run prisma refresh
+  payoutId   String?
+}
+
+model Order {
+  id              String                 @id @default(auto()) @map("_id") @db.ObjectId
+  productId       String                 @db.ObjectId
+  productSnapshot ProductListingSnapshot
+  type            OrderType
+  providerId      String                 @db.ObjectId
+  consumerId      String                 @db.ObjectId
+  conversationId  String                 @db.ObjectId
+  paymentId       String                 @unique @db.ObjectId
+  payment         Payment?               @relation("payment", fields: [paymentId], references: [id])
+  status          OrderStatus
+  rentingDetails  RentOrder?
+  shipment        Shipment?
+  payload         Json
+  payout          OrderPayout
+  createdAt       DateTime               @default(now())
+  updatedAt       DateTime               @updatedAt
+  supportTickets  SupportTicket[]        @relation("concernedId")
+}
+
+model Payment {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  gateway           Gateway
+  amount            Float
+  methodDescription String
+  stripePaymentId   String
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  order             Order?   @relation("payment")
+}
+
+model LegacyImages {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  oldUrl    String   @unique()
+  newUrl    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+type UserStripe {
+  customerId         String?
+  expressAccountId   String?
+  onboardingComplete Boolean?
+}
+
+enum ConversationType {
+  SAME_RADIUS
+  OUTSIDE_RADIUS
+  RENT
+}
+
+model Conversation {
+  id                        String           @id @default(auto()) @map("_id") @db.ObjectId
+  productId                 String           @db.ObjectId
+  product                   ProductListing   @relation("conversations", fields: [productId], references: [id])
+  initiatedBy               String           @db.ObjectId
+  participantIds            String[]         @db.ObjectId
+  participants              User[]           @relation("participants", fields: [participantIds], references: [id])
+  lastMessageId             String?          @db.ObjectId
+  valid                     Boolean          @default(true)
+  enabled                   Boolean          @default(false)
+  type                      ConversationType
+  preferredPaymentMethod    String?
+  preferredAddressId        String?
+  paymentLinkSent           Boolean?
+  deliveryConfirmedBySeller Boolean?
+  paymentLinkCount          Int?
+  orderId                   String?
+  payload                   String?
+  consumersLastSeen         String?          @default("DEFAULT")
+  providersLastSeen         String?          @default("DEFAULT")
+  createdAt                 DateTime         @default(now())
+  updatedAt                 DateTime         @updatedAt
+}
+
+enum MessageActionType {
+  ACCEPT_REQUEST
+  REJECT_REQUEST
+  WITHDRAW_REQUEST
+  COUNTER_REQUEST
+}
+
+// enum PaymentLinkActionType {
+//   ACCEPT
+//   DECLINE
+// }
+
+// type PaymentLinkAction {
+//   type  PaymentLinkActionType
+//   label String
+// }
+
+type MessageAction {
+  type  MessageActionType
+  label String
+}
+
+type MessageActions {
+  senderActions   MessageAction[]
+  receiverActions MessageAction[]
+}
+
+enum MessageState {
+  INITIAL
+  WITHDRAWN
+  ACCEPTED
+  REJECTED
+  COUNTERED
+}
+
+model Message {
+  id             String          @id @default(auto()) @map("_id") @db.ObjectId
+  clientId       String          @unique
+  senderId       String          @db.ObjectId
+  type           MessageType
+  payload        Json
+  actions        MessageActions?
+  state          MessageState?
+  conversationId String          @db.ObjectId
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+}
+
+type ProductBubble {
+  id          String
+  image       String
+  title       String
+  description String
+  mediaType   String
+}
+
+type DealMeetupPreference {
+  days     String
+  time     String
+  location String
+}
+
+type DealMeetupOfferBubble {
+  headerText       String
+  meetupPreference DealMeetupPreference
+  offerPrice       Float
+}
+
+type DealOfferBubble {
+  headerText      String
+  product         ProductBubble
+  offerPrice      Float
+  shippingFee     Float
+  totalPrice      Float
+  sellerAddressId String
+  buyerAddressId  String
+}
+
+type CounterSellerOfferBubble {
+  headerText String
+  offerPrice Float
+}
+
+type RentDateTime {
+  date String
+  time String
+}
+
+type RentOfferBubble {
+  headerText             String
+  product                ProductBubble
+  start                  RentDateTime
+  end                    RentDateTime
+  totalPrice             String
+  buyerFee               String
+  totalPriceWithBuyerFee String
+  consideredWeeks        String
+  duration               String
+  deliveryMode           String
+  address                String
+  startDateTime          String
+  endDateTime            String
+  userIdHavingAddress    String
+  addressIdSelected      String
+}
+
+enum SystemIcons {
+  RUMIE_HAT
+  OFFER
+  PACKAGE
+  USPS
+}
+
+type InfoSystemMessage {
+  icon  SystemIcons
+  text1 String
+  text2 String
+}
+
+type PaymentConfirmationSystemMessage {
+  icon             SystemIcons
+  text1            String
+  text2            String
+  shippingAddress  String
+  note             String
+  orderId          String
+  localTxn         Boolean?
+  conversationType ConversationType?
+}
+
+type OrderUpdateSystemMessage {
+  icon1          SystemIcons
+  icon2          SystemIcons
+  icon3          SystemIcons
+  text1          String
+  text2          String
+  text3          String
+  trackingNumber String
+}
+
+model ChatBubbles {
+  id                              String                           @id @default(auto()) @map("_id") @db.ObjectId
+  productBubble                   ProductBubble
+  dealMeetupOfferBubble           DealMeetupOfferBubble
+  dealOfferBubble                 DealOfferBubble
+  counterSellerOfferBubble        CounterSellerOfferBubble
+  rentOfferBubble                 RentOfferBubble
+  infoSystemMessage               InfoSystemMessage
+  paymentConfirationSystemMessage PaymentConfirmationSystemMessage
+  orderUpdateSystemMessage        OrderUpdateSystemMessage
+  paymentLinkMessage              PaymentLinkMessage
+  paymentLinkUpdateMessage        PaymentLinkUpdateMessage
+  localOrderUpdateMessage         LocalOrderUpdateMessage
+  localOrderHandedOverMessage     LocalOrderHandedOverMessage
+}
+
+type LocalOrderHandedOverMessage {
+  buyerHeading      String
+  buyerDescription  String
+  sellerHeading     String
+  sellerDescription String
+}
+
+type LocalOrderUpdateMessage {
+  heading     String
+  description String
+}
+
+enum PaymentLinkStatus {
+  ACCEPTED
+  DECLINED
+}
+
+type PaymentLinkUpdateMessage {
+  status PaymentLinkStatus
+  amount String
+}
+
+type PaymentLinkMessage {
+  mainText       String
+  disclaimerText String
+  amount         String
+}
+
+model ProductListing {
+  id                      String               @id @default(auto()) @map("_id") @db.ObjectId
+  type                    ProductListingType
+  media                   MediaItem[]
+  title                   String
+  categoryId              String               @db.ObjectId
+  category                ProductCategory?     @relation("ProductCategory", fields: [categoryId], references: [id])
+  selectedCategoryFilters Json?
+  extendedData            Json?
+  brandId                 String?              @db.ObjectId
+  brand                   Brand?               @relation(fields: [brandId], references: [id])
+  colorId                 String?              @db.ObjectId
+  color                   Color?               @relation(fields: [colorId], references: [id])
+  productCondition        ProductCondition
+  productDeliveryMode     ProductDeliveryMode?
+  shippingChargePayer     ShippingChargePayer?
+  rentingPreference       RentingPreference?
+  weightCategoryId        String?              @db.ObjectId
+  weightCategory          WeightCategory?      @relation(fields: [weightCategoryId], references: [id])
+  uploaderId              String               @db.ObjectId
+  uploader                User                 @relation("uploader", fields: [uploaderId], references: [id])
+  price                   Float
+  priceString             String?
+  description             String
+  reasonForSelling        String?
+  shippingEnabled         Boolean              @default(false)
+  shippingFrom            String?
+  active                  Boolean              @default(true)
+  soldOut                 Boolean              @default(false)
+  blackListed             Boolean              @default(false)
+  createdAt               DateTime             @default(now())
+  updatedAt               DateTime             @updatedAt
+  wishlistedUserIds       String[]             @db.ObjectId
+  wishlistedBy            User[]               @relation("wishlist", fields: [wishlistedUserIds], references: [id])
+  conversations           Conversation[]       @relation("conversations")
+  reports                 ProductReport[]      @relation("productReports")
+  legacyHash             String?
+  archived               Boolean              @default(false)
+  // for query optimization
+  categoryPreferredGender PreferredGender?
+  uploaderEduInstituteId  String?              @db.ObjectId
+  uploaderEduInstitute   EduInstitute? @relation("uploaderEduInstitute", fields: [uploaderEduInstituteId], references: [id])
+}
+
+enum OrderType {
+  BUY
+  RENT
+}
+
+enum OrderStatus {
+  CONFIRMED
+  CANCELLED
+}
+
+type RentOrder {
+  startDate        String?
+  endDate          String?
+  initialImages    String[]
+  completionImages String[]
+}
+
+type ProductListingSnapshot {
+  title             String
+  price             String
+  productCondition  String
+  colorName         String?
+  brandName         String?
+  media             MediaItem[]
+  deliveryMode      ProductDeliveryMode
+  type              ProductListingType
+  shippingFrom      String?
+  packageWeight     PackageWeight?
+  packageDimensions PackageDimensions?
+}
+
+type Shipment {
+  labelId             String?
+  from                Address?
+  to                  Address?
+  labelDownloadlink   String?
+  trackingNumber      String?
+  shippingCharge      Float?
+  shippingChargePayer ShippingChargePayer?
+  events              Json?
+  status_description  String?
+  status              OrderNotificationType?
+}
+
+enum Gateway {
+  STRIPE
+}
+
+model Hobby {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  image     String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  active    Boolean  @default(false)
+  userIds   String[] @db.ObjectId
+  users     User[]   @relation(fields: [userIds], references: [id])
+}
+
+model ShoppingPreference {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  image     String
+  active    Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  userIds   String[] @db.ObjectId
+  users     User[]   @relation(fields: [userIds], references: [id])
+}
+
+type FeaturedProductCategory {
+  status Boolean
+  image  String
+}
+
+enum SelectionChoice {
+  SINGLE
+  MULTIPLE
+}
+
+type FilterChoice {
+  name  String
+  value String
+}
+
+type ProductCategoryAppFilters {
+  id            String
+  name          String
+  selectionType SelectionChoice
+  choices       FilterChoice[]
+  infoImage     String
+}
+
+enum PreferredGender {
+  MEN
+  WOMEN
+  ALL
+}
+
+model ProductCategory {
+  id              String                      @id @default(auto()) @map("_id") @db.ObjectId
+  name            String
+  image           String
+  parentId        String?                     @db.ObjectId
+  parent          ProductCategory?            @relation(name: "parent", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  featured        FeaturedProductCategory?
+  filters         ProductCategoryAppFilters[]
+  preferredGender PreferredGender?
+  children        ProductCategory[]           @relation(name: "parent")
+  createdAt       DateTime                    @default(now())
+  updatedAt       DateTime                    @updatedAt
+  productListings ProductListing[]            @relation("ProductCategory")
+  active          Boolean                     @default(false)
+  shippable       Boolean                     @default(false)
+}
+
+model ProductComment {
+  id               String           @id @default(auto()) @map("_id") @db.ObjectId
+  text             String
+  parentId         String?          @db.ObjectId
+  parent           ProductComment?  @relation(name: "parent", fields: [parentId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  children         ProductComment[] @relation(name: "parent")
+  createdAt        DateTime         @default(now())
+  updatedAt        DateTime         @updatedAt
+  productListingId String?          @db.ObjectId
+  userId           String           @db.ObjectId
+  // postedBy         User             @relation("commentPosts", fields: [userId], references: [id])
+  flagged          Boolean          @default(false)
+  archived         Boolean          @default(false)
+}
+
+model Brand {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  image          String?
+  active         Boolean          @default(false)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  featured       Boolean          @default(false)
+  ProductListing ProductListing[]
+}
+
+model Color {
+  id             String           @id @default(auto()) @map("_id") @db.ObjectId
+  name           String
+  hex            String
+  active         Boolean          @default(false)
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  ProductListing ProductListing[]
+}
+
+type DateRange {
+  startDate DateTime
+  endDate   DateTime
+}
+
+type DealBusinessDetails {
+  name    String
+  address String
+  logo    String
+}
+
+type DealTextContent {
+  heading   String @default("")
+  paragraph String @default("")
+  pointers  String @default("")
+}
+
+enum DealType {
+  WITH_COUPON
+  WITHOUT_COUPON
+}
+
+model Deal {
+  id                    String                     @id @default(auto()) @map("_id") @db.ObjectId
+  name                  String
+  image                 String
+  selectedEduInstitutes EduInstituteSelectOption[]
+  business              DealBusinessDetails
+  content               DealTextContent
+  url                   String?
+  type                  DealType
+  couponCode            String                     @default("")
+  validity              DateRange
+  active                Boolean                    @default(false)
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+  savedUserIds          String[]                   @db.ObjectId
+  savedUsers            User[]                     @relation("savedDeals", fields: [savedUserIds], references: [id])
+}
+
+type EduInstituteSelectOption {
+  label String
+  value String @db.ObjectId
+}
+
+enum AdType {
+  LISTING_CARD
+  BANNER
+}
+
+enum AdVisibility {
+  LISTING_CARDS
+  BANNER_SINGLE
+  BANNER_SLIDER
+}
+
+model Ad {
+  id                    String                     @id @default(auto()) @map("_id") @db.ObjectId
+  type                  AdType
+  visibility            AdVisibility[]
+  title                 String
+  image                 String
+  url                   String
+  validity              DateRange
+  active                Boolean                    @default(false)
+  createdAt             DateTime                   @default(now())
+  updatedAt             DateTime                   @updatedAt
+  advertiserName        String?
+  advertiserId          String                     @db.ObjectId
+  advertiser            Advertiser                 @relation("advertiser", fields: [advertiserId], references: [id])
+  monthlyBudget         Int?
+  selectedEduInstitutes EduInstituteSelectOption[]
+  priority              Int
+  targetGenders         Gender[]
+}
+
+type AdvertiserPOC {
+  name        String
+  phoneNumber String
+  email       String
+}
+
+model Advertiser {
+  id                String        @id @default(auto()) @map("_id") @db.ObjectId
+  companyName       String
+  companyWebsiteUrl String
+  logo              String
+  address1          String
+  address2          String?
+  city              String
+  state             String
+  zip               String
+  pointOfContact    AdvertiserPOC
+  active            Boolean
+  ads               Ad[]          @relation("advertiser")
+  createdAt         DateTime      @default(now())
+  updatedAt         DateTime      @updatedAt
+}
+
+enum BannerType {
+  SINGLE
+  SLIDER
+}
+
+enum BannerPosition {
+  HOMEPAGE_SLIDER_1
+  HOMEPAGE_SLIDER_2
+  HOMEPAGE_SINGLE_1
+  HOMEPAGE_SINGLE_2
+  MYLISTING_SINGLE
+  SAVED_DEALS_SINGLE_1
+  SAVED_DEALS_SINGLE_2
+  STUDENT_DEALS_SINGLE_1
+  STUDENT_DEALS_PAGE_SINGLE_2
+}
+
+enum CTAType {
+  EXTERNAL_URL
+  NAVIGATION
+}
+
+model Banner {
+  id        String           @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  type      BannerType
+  image     BannerImage
+  images    BannerImage[]
+  validity  DateRange
+  positions BannerPosition[]
+  active    Boolean          @default(false)
+  createdAt DateTime         @default(now())
+  updatedAt DateTime         @updatedAt
+}
+
+type BannerImage {
+  name       String
+  CTAType    CTAType
+  CTAPayload String
+}
+
+type NameAndImage {
+  name  String
+  image String
+}
+
+type PackageWeight {
+  value Float
+  unit  String @default("ounce")
+}
+
+type PackageDimensions {
+  height Float
+  width  Float
+  length Float
+  unit   String @default("inch")
+}
+
+model WeightCategory {
+  id                String            @id @default(auto()) @map("_id") @db.ObjectId
+  name              String
+  alias             String
+  packageDimensions PackageDimensions
+  packageWeight     PackageWeight
+  shippingFee       Float
+  active            Boolean           @default(false)
+  description       String
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+  ProductListing    ProductListing[]
+}
+
+model ListingSetting {
+  id                   String         @id @default(auto()) @map("_id") @db.ObjectId
+  enableSelling        Boolean
+  enableRenting        Boolean
+  reasonsForSelling    String[]
+  meetupPreferences    String[]
+  productDeliveryModes String[]
+  sellerFees           Int
+  taxes                Int
+  creditProcessing     Int
+  genders              NameAndImage[]
+  conditions           NameAndImage[]
+  createdAt            DateTime       @default(now())
+  updatedAt            DateTime       @updatedAt
+}
+
+model PrivacyPolicy {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  question  String
+  answer    String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OtpLog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  key       String
+  otp       String
+  valid     Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model PayoutRequestLog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  email     String
+  valid     Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model OrderPayoutRequestLog {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  orderId   String   @db.ObjectId
+  email     String
+  valid     Boolean
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum PromoCodeType {
+  FIXED_VALUE
+  PERCENTAGE
+}
+
+model PromoCode {
+  id         String        @id @default(auto()) @map("_id") @db.ObjectId
+  name       String
+  code       String
+  active     Boolean
+  validity   DateRange
+  type       PromoCodeType
+  value      Int
+  usageLimit Int
+  useCount   Int?
+  createdAt  DateTime      @default(now())
+  updatedAt  DateTime      @updatedAt
+}
+
+enum ProductListingType {
+  SALE
+  RENT
+}
+
+enum MediaType {
+  IMAGE
+  VIDEO
+}
+
+type MediaItem {
+  name  String
+  type  MediaType
+  thumb Boolean
+}
+
+enum Availability {
+  ALL
+  SUNDAY
+  MONDAY
+  TUESDAY
+  WEDNESDAY
+  THURSDAY
+  FRIDAY
+  SATURDAY
+}
+
+enum ProductDeliveryMode {
+  DROP_TO_BUYER
+  ASK_BUYER_TO_PICK
+  MEET_AT_PUBLIC_PLACE
+}
+
+type RentingPreference {
+  addressId          String?        @default("")
+  availability       Availability[] @default([])
+  addressDescription String?        @default("")
+}
+
+enum ShippingChargePayer {
+  BUYER
+  SELLER
+}
+
+enum ProductCondition {
+  OKAYISH
+  GOOD
+  FABULOUS
+  NEW
+}
+
+model Admin {
+  id          String         @id @default(auto()) @map("_id") @db.ObjectId
+  name        String
+  username    String         @unique
+  password    String
+  countryCode String
+  phoneNumber String
+  email       String         @unique
+  roles       AdminRole[]    @default([])
+  sessions    AdminSession[]
+}
+
+enum AdminRole {
+  SUPER_ADMIN
+  ADMIN
+  MANAGER
+  MARKETER
+  ANALYST
+  SUPPORT
+}
+
+type AdminSession {
+  token    String
+  valid    Boolean  @default(true)
+  started  DateTime @default(now())
+  lastSeen DateTime @default(now())
+}
+
+enum StoryType {
+  IMAGE
+  VIDEO
+  PRODUCT
+}
+
+enum ReactionType {
+  LIKE
+  LOVE
+  LAUGH
+  WOW
+  SAD
+  ANGRY
+}
+
+type StoryProductPayload {
+  productId   String  @db.ObjectId
+  title       String
+  image       String
+  fontColor   String?
+  textPosX    String?
+  textPosY    String?
+  textHexCode String?
+}
+
+type ImageStoryPayload {
+  image       String // The main image URL
+  fontColor   String?
+  textPosX    String?
+  textPosY    String?
+  textHexCode String?
+}
+
+model StoryPayload {
+  id    String              @id @default(auto()) @map("_id") @db.ObjectId
+  photo StoryProductPayload
+  image ImageStoryPayload
+}
+
+type StoryMedia {
+  url       String
+  type      StoryType
+  duration  Int?
+  thumbnail String?
+}
+
+model Story {
+  id              String     @id @default(auto()) @map("_id") @db.ObjectId
+  userId          String     @db.ObjectId
+  media           StoryMedia
+  type            StoryType
+  content         Json?
+  caption         String?
+  backgroundColor String?
+  viewCount       Int        @default(0)
+  eduInstituteId  String     @db.ObjectId // Stories will be visible to same institute students
+  expiresAt       DateTime // 24 hours from creation
+  archived        Boolean    @default(false)
+  createdAt       DateTime   @default(now())
+  updatedAt       DateTime   @updatedAt
+}
+
+model StoryReaction {
+  id                 String       @id @default(auto()) @map("_id") @db.ObjectId
+  storyId            String       @db.ObjectId
+  userId             String       @db.ObjectId
+  type               ReactionType
+  active             Boolean      @default(true)
+  previousReactionId String?      @db.ObjectId
+  removedAt          DateTime?
+  createdAt          DateTime     @default(now())
+}
+
+model StoryView {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  storyId   String   @db.ObjectId
+  userId    String   @db.ObjectId
+  createdAt DateTime @default(now())
+}
+
+enum CampusChatType {
+  GENERAL // General discussions
+  STUDENT_BUSINESS
+  LOST_AND_FOUND // Lost and found items
+  EVENTS // Campus events discussion
+  BUY_SELL // Marketplace discussions
+  ACADEMICS // Study groups, academic discussions
+  ANNOUNCEMENTS // Official announcements
+  SPORTS // Sports related discussions
+  HOUSING // Housing/roommate finder
+  JOBS_AND_INTERNSHIPS
+  CUSTOM // For user-created custom chats
+}
+
+model CampusChat {
+  id             String         @id @default(auto()) @map("_id") @db.ObjectId
+  eduInstituteId String         @db.ObjectId
+  eduInstitute   EduInstitute @relation("campusChats", fields: [eduInstituteId], references: [id])
+  name           String
+  type           CampusChatType
+  description    String?      
+  active         Boolean        @default(true)
+  createdAt      DateTime       @default(now())
+  updatedAt      DateTime       @updatedAt
+}
+
+enum CampusChatMessageType {
+  TEXT
+  PRODUCT_SHARE
+  IMAGE
+  VIDEO
+  SYSTEM_NOTIFICATION
+  EVENT
+}
+
+type ProductShareCampusChatPayload {
+  productId   String             @db.ObjectId
+  title       String
+  price       Float
+  priceString String
+  mediaItem   MediaItem
+  type        ProductListingType
+  text        String?
+}
+
+type TextCampusChatPayload {
+  title String?
+  text  String
+}
+
+model CampusChatMessagePayload {
+  id           String                        @id @default(auto()) @map("_id") @db.ObjectId
+  text         TextCampusChatPayload
+  productShare ProductShareCampusChatPayload
+}
+
+type CampusChatComment {
+  clientId  String
+  userId    String    @db.ObjectId
+  text      String
+  deletedAt DateTime?
+  createdAt DateTime
+}
+
+type CampusChatReaction {
+  type      ReactionType
+  userId    String       @db.ObjectId
+  createdAt DateTime
+}
+
+enum CampusChatMessageFlaggedBy {
+  ADMIN
+  SYSTEM
+}
+
+model CampusChatMessage {
+  id          String                      @id @default(auto()) @map("_id") @db.ObjectId
+  chatId      String                      @db.ObjectId
+  userId      String                      @db.ObjectId
+  clientId    String
+  type        CampusChatMessageType
+  content     Json
+  comments    CampusChatComment[]
+  reactions   CampusChatReaction[]
+  reportCount Int                         @default(0) // Number of times reported
+  flagged     Boolean                     @default(false) // Flagged by moderators/system
+  flaggedAt   DateTime?
+  flaggedBy   CampusChatMessageFlaggedBy?
+  deletedAt   DateTime?
+  createdAt   DateTime                    @default(now())
+  updatedAt   DateTime                    @updatedAt
+}
+
+enum CampusChatReportReason {
+  INAPPROPRIATE_CONTENT
+  HATE_SPEECH
+  SPAM
+  HARASSMENT
+  FAKE_NEWS
+  OTHER
+}
+
+enum CampusChatReportAction {
+  REMOVED
+  WARNING_ISSUED
+  NO_ACTION
+}
+
+type CampusChatReportStatus {
+  reviewed   Boolean                 @default(false)
+  reviewedAt DateTime?
+  reviewedBy String?                 @db.ObjectId
+  action     CampusChatReportAction?
+}
+
+model CampusChatReport {
+  id         String                 @id @default(auto()) @map("_id") @db.ObjectId
+  messageId  String                 @db.ObjectId
+  commentId  String?
+  reporterId String                 @db.ObjectId
+  reason     CampusChatReportReason
+  details    String? // Additional details provided by reporter
+  status     CampusChatReportStatus
+  createdAt  DateTime               @default(now())
+  updatedAt  DateTime               @updatedAt
+}
+
+model PersonalDM {
+  id                String   @id @default(auto()) @map("_id") @db.ObjectId
+  initiatedBy       String   @db.ObjectId
+  participantIds    String[] @db.ObjectId
+  lastMessageId     String?  @db.ObjectId
+  valid             Boolean  @default(true)
+  enabled           Boolean  @default(false)
+  payload           String?
+  consumersLastSeen String?
+  providersLastSeen String?
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+}
+
+enum DMType {
+  TEXT
+  STORY_SHARE
+}
+
+type DMTextBubble {
+  text String
+}
+
+type DMStoryShareBubble {
+  text      String
+  thumbnail String
+}
+
+model DMMessageType {
+  id                 String             @id @default(auto()) @map("_id") @db.ObjectId
+  dmTextBubble       DMTextBubble
+  dmStoryShareBubble DMStoryShareBubble
+}
+
+model DirectMessage {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  clientId     String   @unique
+  senderId     String   @db.ObjectId
+  type         DMType
+  payload      Json
+  personalDmId String   @db.ObjectId
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+enum ContentModerationType {
+  PROFANITY
+  HATE_SPEECH
+  HARASSMENT
+  SPAM
+  INAPPROPRIATE
+  CUSTOM
+}
+
+model BannedWordsCategory {
+  id          String               @id @default(auto()) @map("_id") @db.ObjectId
+  name        String               @unique
+  description String?
+  severity    Int                  @default(1) // 1-5, where 5 is most severe
+  active      Boolean              @default(true)
+  words       BannedWord[]
+  createdAt   DateTime             @default(now())
+  updatedAt   DateTime             @updatedAt
+}
+
+model BannedWord {
+  id         String             @id @default(auto()) @map("_id") @db.ObjectId
+  word       String             @unique
+  category   BannedWordsCategory @relation(fields: [categoryId], references: [id])
+  categoryId String             @db.ObjectId
+  active     Boolean            @default(true)
+  createdAt  DateTime           @default(now())
+  updatedAt  DateTime           @updatedAt
+
+  @@index([categoryId])
+}
+
+enum ProductReportReason {
+  INAPPROPRIATE_CONTENT
+  COUNTERFEIT
+  MISLEADING
+  PROHIBITED_ITEM
+  SPAM
+  HARASSMENT
+  INCORRECT_CATEGORY
+  OTHER
+}
+
+type ProductReportStatus {
+  reviewed   Boolean                 @default(false)
+  reviewedAt DateTime?
+  reviewedBy String?                 @db.ObjectId
+  action     ProductReportAction?
+}
+
+enum ProductReportAction {
+  REMOVED
+  WARNING_ISSUED
+  NO_ACTION
+}
+
+model ProductReport {
+  id          String              @id @default(auto()) @map("_id") @db.ObjectId
+  productId   String              @db.ObjectId
+  product     ProductListing      @relation("productReports", fields: [productId], references: [id])
+  reporterId  String              @db.ObjectId
+  reporter    User                @relation("reportedProducts", fields: [reporterId], references: [id])
+  reason      ProductReportReason
+  details     String?             // Additional details provided by reporter
+  status      ProductReportStatus
+  createdAt   DateTime            @default(now())
+  updatedAt   DateTime            @updatedAt
+}
