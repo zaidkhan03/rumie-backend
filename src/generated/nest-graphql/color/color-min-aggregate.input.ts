@@ -1,0 +1,24 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+
+@InputType()
+export class ColorMinAggregateInput {
+
+    @Field(() => Boolean, {nullable:true})
+    id?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    name?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    hex?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    active?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    createdAt?: true;
+
+    @Field(() => Boolean, {nullable:true})
+    updatedAt?: true;
+}

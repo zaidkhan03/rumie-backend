@@ -1,0 +1,31 @@
+import { Field } from '@nestjs/graphql';
+import { ArgsType } from '@nestjs/graphql';
+import { DMMessageTypeWhereInput } from '../dm-message-type/dm-message-type-where.input';
+import { Type } from 'class-transformer';
+import { DMMessageTypeOrderByWithRelationInput } from '../dm-message-type/dm-message-type-order-by-with-relation.input';
+import { DMMessageTypeWhereUniqueInput } from '../dm-message-type/dm-message-type-where-unique.input';
+import { Int } from '@nestjs/graphql';
+import { DMMessageTypeScalarFieldEnum } from '../dm-message-type/dm-message-type-scalar-field.enum';
+
+@ArgsType()
+export class FindFirstDmMessageTypeOrThrowArgs {
+
+    @Field(() => DMMessageTypeWhereInput, {nullable:true})
+    @Type(() => DMMessageTypeWhereInput)
+    where?: DMMessageTypeWhereInput;
+
+    @Field(() => [DMMessageTypeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<DMMessageTypeOrderByWithRelationInput>;
+
+    @Field(() => DMMessageTypeWhereUniqueInput, {nullable:true})
+    cursor?: DMMessageTypeWhereUniqueInput;
+
+    @Field(() => Int, {nullable:true})
+    take?: number;
+
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+
+    @Field(() => [DMMessageTypeScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${DMMessageTypeScalarFieldEnum}`>;
+}

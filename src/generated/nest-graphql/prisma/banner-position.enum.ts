@@ -1,0 +1,16 @@
+import { registerEnumType } from '@nestjs/graphql';
+
+export enum BannerPosition {
+    HOMEPAGE_SLIDER_1 = "HOMEPAGE_SLIDER_1",
+    HOMEPAGE_SLIDER_2 = "HOMEPAGE_SLIDER_2",
+    HOMEPAGE_SINGLE_1 = "HOMEPAGE_SINGLE_1",
+    HOMEPAGE_SINGLE_2 = "HOMEPAGE_SINGLE_2",
+    MYLISTING_SINGLE = "MYLISTING_SINGLE",
+    SAVED_DEALS_SINGLE_1 = "SAVED_DEALS_SINGLE_1",
+    SAVED_DEALS_SINGLE_2 = "SAVED_DEALS_SINGLE_2",
+    STUDENT_DEALS_SINGLE_1 = "STUDENT_DEALS_SINGLE_1",
+    STUDENT_DEALS_PAGE_SINGLE_2 = "STUDENT_DEALS_PAGE_SINGLE_2"
+}
+
+
+registerEnumType(BannerPosition, { name: 'BannerPosition', description: undefined })

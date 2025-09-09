@@ -1,0 +1,28 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { SortOrder } from '../prisma/sort-order.enum';
+
+@InputType()
+export class PaymentMinOrderByAggregateInput {
+
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    gateway?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    amount?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    methodDescription?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    stripePaymentId?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}

@@ -1,0 +1,16 @@
+import { Field } from '@nestjs/graphql';
+import { InputType } from '@nestjs/graphql';
+import { SortOrder } from '../prisma/sort-order.enum';
+
+@InputType()
+export class ListingSettingAvgOrderByAggregateInput {
+
+    @Field(() => SortOrder, {nullable:true})
+    sellerFees?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    taxes?: `${SortOrder}`;
+
+    @Field(() => SortOrder, {nullable:true})
+    creditProcessing?: `${SortOrder}`;
+}
