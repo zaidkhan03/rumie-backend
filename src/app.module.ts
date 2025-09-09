@@ -3,8 +3,9 @@ import { AppService } from "./app.service";
 import { GraphQLModule } from "@nestjs/graphql";
 import { MercuriusDriver, MercuriusDriverConfig } from "@nestjs/mercurius";
 import { AppController } from "./app.controller";
-import { DemoModule } from "./demo/demo.module";
 import { DataBaseModule } from "./db/db.module";
+import { DatabaseService } from "./db/db.service";
+import { UsersModule } from "./users/users.module";
 
 @Module({
   imports: [
@@ -14,10 +15,10 @@ import { DataBaseModule } from "./db/db.module";
       introspection: true,
       subscription: true,
     }),
-    DemoModule,
     DataBaseModule,
+    UsersModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, DatabaseService],
 })
 export class AppModule {}
