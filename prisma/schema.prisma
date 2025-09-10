@@ -774,8 +774,8 @@ model ProductListing {
   rentingPreference       RentingPreference?
   weightCategoryId        String?              @db.ObjectId
   weightCategory          WeightCategory?      @relation(fields: [weightCategoryId], references: [id])
-  uploaderId              String               @db.ObjectId
-  uploader                User                 @relation("uploader", fields: [uploaderId], references: [id])
+  uploaderId              String?               @db.ObjectId
+  uploader                User?                 @relation("uploader", fields: [uploaderId], references: [id])
   price                   Float
   priceString             String?
   description             String

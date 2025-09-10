@@ -15,10 +15,15 @@ export class ConversationsService {
     orderBy?: ConversationOrderByWithRelationInput
   ) {
     return this.db.conversation.findMany({
-      where,
+      where: {
+        ...where,
+      },
       skip,
       take,
       orderBy,
+      include: {
+        participants: true,
+      },
     });
   }
 }

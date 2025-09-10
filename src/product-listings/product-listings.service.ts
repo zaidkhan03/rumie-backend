@@ -15,7 +15,15 @@ export class ProductListingsService {
     orderBy?: ProductListingOrderByWithRelationInput
   ) {
     return this.db.productListing.findMany({
-      where,
+      include: {
+        uploader: true,
+      },
+      where: {
+        ...where,
+        uploaderId: {
+          isSet: true,
+        },
+      },
       skip,
       take,
       orderBy,
