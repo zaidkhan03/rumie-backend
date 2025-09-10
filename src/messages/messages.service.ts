@@ -1,20 +1,20 @@
 import { Injectable } from "@nestjs/common";
 import {
-  UserOrderByWithRelationInput,
-  UserWhereInput,
+  MessageOrderByWithRelationInput,
+  MessageWhereInput,
 } from "src/---generated---";
 import { DatabaseService } from "src/db/db.service";
 
 @Injectable()
-export class UsersService {
+export class MessagesService {
   constructor(private readonly db: DatabaseService) {}
-  async getAllUsers(
-    where?: UserWhereInput,
+  async getAllOrders(
+    where?: MessageWhereInput,
     take?: number,
     skip?: number,
-    orderBy?: UserOrderByWithRelationInput
+    orderBy?: MessageOrderByWithRelationInput
   ) {
-    return this.db.user.findMany({
+    return this.db.message.findMany({
       where,
       skip,
       take,
