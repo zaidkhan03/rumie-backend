@@ -2,8 +2,12 @@ generator client {
   provider        = "prisma-client-js"
 }
 generator nestgraphql {
-  provider = "prisma-nestjs-graphql"
-  output   = "../src/generated/nest-graphql"
+  provider = "node node_modules/prisma-nestjs-graphql"
+  output   = "../src/---generated---"
+  emitSingle = true
+  fields_Validator_from = "class-validator"
+  emitBlocks            = ["models", "enums", "inputs", "args"]
+  omitModelsCount       = true
 }
 
 datasource db {
