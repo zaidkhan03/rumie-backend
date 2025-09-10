@@ -36730,8 +36730,8 @@ export class ProductListingCreateManyBrandInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -36801,8 +36801,8 @@ export class ProductListingCreateManyCategoryInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -36872,8 +36872,8 @@ export class ProductListingCreateManyColorInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -36945,8 +36945,8 @@ export class ProductListingCreateManyUploaderEduInstituteInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -37085,8 +37085,8 @@ export class ProductListingCreateManyWeightCategoryInput {
     shippingChargePayer?: `${ShippingChargePayer}`;
     @Field(() => RentingPreferenceNullableCreateEnvelopeInput, {nullable:true})
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -37151,8 +37151,8 @@ export class ProductListingCreateManyInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -37468,8 +37468,8 @@ export class ProductListingCreateWithoutBrandInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37536,8 +37536,8 @@ export class ProductListingCreateWithoutCategoryInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37604,8 +37604,8 @@ export class ProductListingCreateWithoutColorInput {
     brand?: InstanceType<typeof BrandCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37674,8 +37674,8 @@ export class ProductListingCreateWithoutConversationsInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ProductReportCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37742,8 +37742,8 @@ export class ProductListingCreateWithoutReportsInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37810,8 +37810,8 @@ export class ProductListingCreateWithoutUploaderEduInstituteInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -37944,8 +37944,8 @@ export class ProductListingCreateWithoutWeightCategoryInput {
     brand?: InstanceType<typeof BrandCreateNestedOneWithoutProductListingInput>;
     @Field(() => ColorCreateNestedOneWithoutProductListingInput, {nullable:true})
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -38014,8 +38014,8 @@ export class ProductListingCreateWithoutWishlistedByInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
     conversations?: InstanceType<typeof ConversationCreateNestedManyWithoutProductInput>;
     @Field(() => ProductReportCreateNestedManyWithoutProductInput, {nullable:true})
@@ -38082,8 +38082,8 @@ export class ProductListingCreateInput {
     color?: InstanceType<typeof ColorCreateNestedOneWithoutProductListingInput>;
     @Field(() => WeightCategoryCreateNestedOneWithoutProductListingInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryCreateNestedOneWithoutProductListingInput>;
-    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:false})
-    uploader!: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
+    @Field(() => UserCreateNestedOneWithoutProductListingsInput, {nullable:true})
+    uploader?: InstanceType<typeof UserCreateNestedOneWithoutProductListingsInput>;
     @Field(() => UserCreateNestedManyWithoutWishlistInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserCreateNestedManyWithoutWishlistInput>;
     @Field(() => ConversationCreateNestedManyWithoutProductInput, {nullable:true})
@@ -38441,8 +38441,8 @@ export class ProductListingScalarWhereWithAggregatesInput {
     shippingChargePayer?: InstanceType<typeof EnumShippingChargePayerNullableWithAggregatesFilter>;
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
     weightCategoryId?: InstanceType<typeof StringNullableWithAggregatesFilter>;
-    @Field(() => StringWithAggregatesFilter, {nullable:true})
-    uploaderId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    uploaderId?: InstanceType<typeof StringNullableWithAggregatesFilter>;
     @Field(() => FloatWithAggregatesFilter, {nullable:true})
     price?: InstanceType<typeof FloatWithAggregatesFilter>;
     @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
@@ -38509,8 +38509,8 @@ export class ProductListingScalarWhereInput {
     shippingChargePayer?: InstanceType<typeof EnumShippingChargePayerNullableFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
     weightCategoryId?: InstanceType<typeof StringNullableFilter>;
-    @Field(() => StringFilter, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    uploaderId?: InstanceType<typeof StringNullableFilter>;
     @Field(() => FloatFilter, {nullable:true})
     price?: InstanceType<typeof FloatFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
@@ -38688,8 +38688,8 @@ export class ProductListingUncheckedCreateWithoutBrandInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -38758,8 +38758,8 @@ export class ProductListingUncheckedCreateWithoutCategoryInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -38828,8 +38828,8 @@ export class ProductListingUncheckedCreateWithoutColorInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -38900,8 +38900,8 @@ export class ProductListingUncheckedCreateWithoutConversationsInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -38970,8 +38970,8 @@ export class ProductListingUncheckedCreateWithoutReportsInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -39040,8 +39040,8 @@ export class ProductListingUncheckedCreateWithoutUploaderEduInstituteInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -39178,8 +39178,8 @@ export class ProductListingUncheckedCreateWithoutWeightCategoryInput {
     shippingChargePayer?: `${ShippingChargePayer}`;
     @Field(() => RentingPreferenceNullableCreateEnvelopeInput, {nullable:true})
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -39250,8 +39250,8 @@ export class ProductListingUncheckedCreateWithoutWishlistedByInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -39320,8 +39320,8 @@ export class ProductListingUncheckedCreateInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCreateEnvelopeInput>;
     @Field(() => String, {nullable:true})
     weightCategoryId?: string;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId?: string;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -39425,8 +39425,8 @@ export class ProductListingUncheckedUpdateManyWithoutBrandInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -39524,8 +39524,8 @@ export class ProductListingUncheckedUpdateManyWithoutCategoryInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -39623,8 +39623,8 @@ export class ProductListingUncheckedUpdateManyWithoutColorInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -39724,8 +39724,8 @@ export class ProductListingUncheckedUpdateManyWithoutUploaderEduInstituteInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -39920,8 +39920,8 @@ export class ProductListingUncheckedUpdateManyWithoutWeightCategoryInput {
     shippingChargePayer?: InstanceType<typeof NullableEnumShippingChargePayerFieldUpdateOperationsInput>;
     @Field(() => RentingPreferenceNullableUpdateEnvelopeInput, {nullable:true})
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40018,8 +40018,8 @@ export class ProductListingUncheckedUpdateManyWithoutWishlistedByInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40082,8 +40082,8 @@ export class ProductListingUncheckedUpdateManyInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40144,8 +40144,8 @@ export class ProductListingUncheckedUpdateWithoutBrandInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40212,8 +40212,8 @@ export class ProductListingUncheckedUpdateWithoutCategoryInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40280,8 +40280,8 @@ export class ProductListingUncheckedUpdateWithoutColorInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40350,8 +40350,8 @@ export class ProductListingUncheckedUpdateWithoutConversationsInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40418,8 +40418,8 @@ export class ProductListingUncheckedUpdateWithoutReportsInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40486,8 +40486,8 @@ export class ProductListingUncheckedUpdateWithoutUploaderEduInstituteInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40620,8 +40620,8 @@ export class ProductListingUncheckedUpdateWithoutWeightCategoryInput {
     shippingChargePayer?: InstanceType<typeof NullableEnumShippingChargePayerFieldUpdateOperationsInput>;
     @Field(() => RentingPreferenceNullableUpdateEnvelopeInput, {nullable:true})
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40690,8 +40690,8 @@ export class ProductListingUncheckedUpdateWithoutWishlistedByInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -40758,8 +40758,8 @@ export class ProductListingUncheckedUpdateInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableUpdateEnvelopeInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
     weightCategoryId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
-    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    uploaderId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
     @Field(() => FloatFieldUpdateOperationsInput, {nullable:true})
     price?: InstanceType<typeof FloatFieldUpdateOperationsInput>;
     @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
@@ -41358,8 +41358,8 @@ export class ProductListingUpdateWithoutBrandInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41424,8 +41424,8 @@ export class ProductListingUpdateWithoutCategoryInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41490,8 +41490,8 @@ export class ProductListingUpdateWithoutColorInput {
     brand?: InstanceType<typeof BrandUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41558,8 +41558,8 @@ export class ProductListingUpdateWithoutConversationsInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ProductReportUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41624,8 +41624,8 @@ export class ProductListingUpdateWithoutReportsInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41690,8 +41690,8 @@ export class ProductListingUpdateWithoutUploaderEduInstituteInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41820,8 +41820,8 @@ export class ProductListingUpdateWithoutWeightCategoryInput {
     brand?: InstanceType<typeof BrandUpdateOneWithoutProductListingNestedInput>;
     @Field(() => ColorUpdateOneWithoutProductListingNestedInput, {nullable:true})
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41888,8 +41888,8 @@ export class ProductListingUpdateWithoutWishlistedByInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
     conversations?: InstanceType<typeof ConversationUpdateManyWithoutProductNestedInput>;
     @Field(() => ProductReportUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -41954,8 +41954,8 @@ export class ProductListingUpdateInput {
     color?: InstanceType<typeof ColorUpdateOneWithoutProductListingNestedInput>;
     @Field(() => WeightCategoryUpdateOneWithoutProductListingNestedInput, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryUpdateOneWithoutProductListingNestedInput>;
-    @Field(() => UserUpdateOneRequiredWithoutProductListingsNestedInput, {nullable:true})
-    uploader?: InstanceType<typeof UserUpdateOneRequiredWithoutProductListingsNestedInput>;
+    @Field(() => UserUpdateOneWithoutProductListingsNestedInput, {nullable:true})
+    uploader?: InstanceType<typeof UserUpdateOneWithoutProductListingsNestedInput>;
     @Field(() => UserUpdateManyWithoutWishlistNestedInput, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserUpdateManyWithoutWishlistNestedInput>;
     @Field(() => ConversationUpdateManyWithoutProductNestedInput, {nullable:true})
@@ -42127,8 +42127,8 @@ export class ProductListingWhereUniqueInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCompositeFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
     weightCategoryId?: InstanceType<typeof StringNullableFilter>;
-    @Field(() => StringFilter, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    uploaderId?: InstanceType<typeof StringNullableFilter>;
     @Field(() => FloatFilter, {nullable:true})
     price?: InstanceType<typeof FloatFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
@@ -42169,8 +42169,8 @@ export class ProductListingWhereUniqueInput {
     color?: InstanceType<typeof ColorNullableRelationFilter>;
     @Field(() => WeightCategoryNullableRelationFilter, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryNullableRelationFilter>;
-    @Field(() => UserRelationFilter, {nullable:true})
-    uploader?: InstanceType<typeof UserRelationFilter>;
+    @Field(() => UserNullableRelationFilter, {nullable:true})
+    uploader?: InstanceType<typeof UserNullableRelationFilter>;
     @Field(() => UserListRelationFilter, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserListRelationFilter>;
     @Field(() => ConversationListRelationFilter, {nullable:true})
@@ -42217,8 +42217,8 @@ export class ProductListingWhereInput {
     rentingPreference?: InstanceType<typeof RentingPreferenceNullableCompositeFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
     weightCategoryId?: InstanceType<typeof StringNullableFilter>;
-    @Field(() => StringFilter, {nullable:true})
-    uploaderId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    uploaderId?: InstanceType<typeof StringNullableFilter>;
     @Field(() => FloatFilter, {nullable:true})
     price?: InstanceType<typeof FloatFilter>;
     @Field(() => StringNullableFilter, {nullable:true})
@@ -42259,8 +42259,8 @@ export class ProductListingWhereInput {
     color?: InstanceType<typeof ColorNullableRelationFilter>;
     @Field(() => WeightCategoryNullableRelationFilter, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategoryNullableRelationFilter>;
-    @Field(() => UserRelationFilter, {nullable:true})
-    uploader?: InstanceType<typeof UserRelationFilter>;
+    @Field(() => UserNullableRelationFilter, {nullable:true})
+    uploader?: InstanceType<typeof UserNullableRelationFilter>;
     @Field(() => UserListRelationFilter, {nullable:true})
     wishlistedBy?: InstanceType<typeof UserListRelationFilter>;
     @Field(() => ConversationListRelationFilter, {nullable:true})
@@ -42301,8 +42301,8 @@ export class ProductListing {
     rentingPreference?: InstanceType<typeof RentingPreference> | null;
     @Field(() => String, {nullable:true})
     weightCategoryId!: string | null;
-    @Field(() => String, {nullable:false})
-    uploaderId!: string;
+    @Field(() => String, {nullable:true})
+    uploaderId!: string | null;
     @Field(() => Float, {nullable:false})
     price!: number;
     @Field(() => String, {nullable:true})
@@ -42343,8 +42343,8 @@ export class ProductListing {
     color?: InstanceType<typeof Color> | null;
     @Field(() => WeightCategory, {nullable:true})
     weightCategory?: InstanceType<typeof WeightCategory> | null;
-    @Field(() => User, {nullable:false})
-    uploader?: InstanceType<typeof User>;
+    @Field(() => User, {nullable:true})
+    uploader?: InstanceType<typeof User> | null;
     @Field(() => [User], {nullable:true})
     wishlistedBy?: Array<User>;
     @Field(() => [Conversation], {nullable:true})
@@ -51509,6 +51509,14 @@ export class UserMinOrderByAggregateInput {
 }
 
 @InputType()
+export class UserNullableRelationFilter {
+    @Field(() => UserWhereInput, {nullable:true})
+    is?: InstanceType<typeof UserWhereInput>;
+    @Field(() => UserWhereInput, {nullable:true})
+    isNot?: InstanceType<typeof UserWhereInput>;
+}
+
+@InputType()
 export class UserOrderByRelationAggregateInput {
     @Field(() => SortOrder, {nullable:true})
     _count?: `${SortOrder}`;
@@ -55654,25 +55662,6 @@ export class UserUpdateManyWithoutWishlistNestedInput {
 }
 
 @InputType()
-export class UserUpdateOneRequiredWithoutProductListingsNestedInput {
-    @Field(() => UserCreateWithoutProductListingsInput, {nullable:true})
-    @Type(() => UserCreateWithoutProductListingsInput)
-    create?: InstanceType<typeof UserCreateWithoutProductListingsInput>;
-    @Field(() => UserCreateOrConnectWithoutProductListingsInput, {nullable:true})
-    @Type(() => UserCreateOrConnectWithoutProductListingsInput)
-    connectOrCreate?: InstanceType<typeof UserCreateOrConnectWithoutProductListingsInput>;
-    @Field(() => UserUpsertWithoutProductListingsInput, {nullable:true})
-    @Type(() => UserUpsertWithoutProductListingsInput)
-    upsert?: InstanceType<typeof UserUpsertWithoutProductListingsInput>;
-    @Field(() => UserWhereUniqueInput, {nullable:true})
-    @Type(() => UserWhereUniqueInput)
-    connect?: Prisma.AtLeast<UserWhereUniqueInput, 'id'>;
-    @Field(() => UserUpdateToOneWithWhereWithoutProductListingsInput, {nullable:true})
-    @Type(() => UserUpdateToOneWithWhereWithoutProductListingsInput)
-    update?: InstanceType<typeof UserUpdateToOneWithWhereWithoutProductListingsInput>;
-}
-
-@InputType()
 export class UserUpdateOneRequiredWithoutReportedProductsNestedInput {
     @Field(() => UserCreateWithoutReportedProductsInput, {nullable:true})
     @Type(() => UserCreateWithoutReportedProductsInput)
@@ -55689,6 +55678,30 @@ export class UserUpdateOneRequiredWithoutReportedProductsNestedInput {
     @Field(() => UserUpdateToOneWithWhereWithoutReportedProductsInput, {nullable:true})
     @Type(() => UserUpdateToOneWithWhereWithoutReportedProductsInput)
     update?: InstanceType<typeof UserUpdateToOneWithWhereWithoutReportedProductsInput>;
+}
+
+@InputType()
+export class UserUpdateOneWithoutProductListingsNestedInput {
+    @Field(() => UserCreateWithoutProductListingsInput, {nullable:true})
+    @Type(() => UserCreateWithoutProductListingsInput)
+    create?: InstanceType<typeof UserCreateWithoutProductListingsInput>;
+    @Field(() => UserCreateOrConnectWithoutProductListingsInput, {nullable:true})
+    @Type(() => UserCreateOrConnectWithoutProductListingsInput)
+    connectOrCreate?: InstanceType<typeof UserCreateOrConnectWithoutProductListingsInput>;
+    @Field(() => UserUpsertWithoutProductListingsInput, {nullable:true})
+    @Type(() => UserUpsertWithoutProductListingsInput)
+    upsert?: InstanceType<typeof UserUpsertWithoutProductListingsInput>;
+    @Field(() => Boolean, {nullable:true})
+    disconnect?: boolean;
+    @Field(() => UserWhereInput, {nullable:true})
+    @Type(() => UserWhereInput)
+    delete?: InstanceType<typeof UserWhereInput>;
+    @Field(() => UserWhereUniqueInput, {nullable:true})
+    @Type(() => UserWhereUniqueInput)
+    connect?: Prisma.AtLeast<UserWhereUniqueInput, 'id'>;
+    @Field(() => UserUpdateToOneWithWhereWithoutProductListingsInput, {nullable:true})
+    @Type(() => UserUpdateToOneWithWhereWithoutProductListingsInput)
+    update?: InstanceType<typeof UserUpdateToOneWithWhereWithoutProductListingsInput>;
 }
 
 @InputType()

@@ -14,6 +14,12 @@ export class PaymentsService {
     skip?: number,
     orderBy?: PaymentOrderByWithRelationInput
   ) {
-    return this.db.payment.findMany({ where, take, skip, orderBy });
+    return this.db.payment.findMany({
+      include: { order: true },
+      where,
+      take,
+      skip,
+      orderBy,
+    });
   }
 }
