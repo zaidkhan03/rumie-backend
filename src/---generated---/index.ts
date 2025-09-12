@@ -59,6 +59,16 @@ export enum UserScalarFieldEnum {
     isParent = "isParent"
 }
 
+export enum UniversityAdminScalarFieldEnum {
+    id = "id",
+    userType = "userType",
+    userName = "userName",
+    email = "email",
+    password = "password",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
+}
+
 export enum SupportTicketScalarFieldEnum {
     id = "id",
     type = "type",
@@ -69,6 +79,17 @@ export enum SupportTicketScalarFieldEnum {
     concernedId = "concernedId",
     userLastSeen = "userLastSeen",
     adminLastSeen = "adminLastSeen",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
+}
+
+export enum SupportRequestScalarFieldEnum {
+    id = "id",
+    userId = "userId",
+    ticketId = "ticketId",
+    email = "email",
+    message = "message",
+    status = "status",
     createdAt = "createdAt",
     updatedAt = "updatedAt"
 }
@@ -230,6 +251,17 @@ export enum UserGenderFilter {
     OTHER = "OTHER"
 }
 
+export enum UniversityAdminType {
+    ADMIN = "ADMIN",
+    INSTITUTION = "INSTITUTION"
+}
+
+export enum Tag {
+    EVENT = "EVENT",
+    SPORT = "SPORT",
+    RESOURCES = "RESOURCES"
+}
+
 export enum SystemNotificationType {
     CONVERSATION_RELATED = "CONVERSATION_RELATED",
     ORDER_RELATED = "ORDER_RELATED",
@@ -253,6 +285,12 @@ export enum SupportTicketType {
 export enum SupportTicketParticipant {
     ADMIN = "ADMIN",
     USER = "USER"
+}
+
+export enum SupportStatusType {
+    OPEN = "OPEN",
+    IN_PROGRESS = "IN_PROGRESS",
+    CLOSED = "CLOSED"
 }
 
 export enum StoryType {
@@ -473,6 +511,12 @@ export enum Gateway {
     STRIPE = "STRIPE"
 }
 
+export enum EventType {
+    impression = "impression",
+    click = "click",
+    ctaClick = "ctaClick"
+}
+
 export enum EduSelectionListType {
     ALL_UNIVERSITIES = "ALL_UNIVERSITIES",
     ONLY_SELECTED_UNIVERSTIES = "ONLY_SELECTED_UNIVERSTIES",
@@ -541,6 +585,12 @@ export enum CampusChatMessageType {
 export enum CampusChatMessageFlaggedBy {
     ADMIN = "ADMIN",
     SYSTEM = "SYSTEM"
+}
+
+export enum CampaignType {
+    LISTING = "LISTING",
+    BANNER = "BANNER",
+    POPUP = "POPUP"
 }
 
 export enum BooleanChoice {
@@ -663,6 +713,15 @@ export enum PaymentScalarFieldEnum {
     updatedAt = "updatedAt"
 }
 
+export enum PassCodeScalarFieldEnum {
+    id = "id",
+    userId = "userId",
+    passCode = "passCode",
+    isPassed = "isPassed",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
+}
+
 export enum OtpLogScalarFieldEnum {
     id = "id",
     key = "key",
@@ -745,6 +804,18 @@ export enum LegacyImagesScalarFieldEnum {
     updatedAt = "updatedAt"
 }
 
+export enum InstitutionScalarFieldEnum {
+    id = "id",
+    institutionName = "institutionName",
+    slug = "slug",
+    passCode = "passCode",
+    logo = "logo",
+    schoolColor = "schoolColor",
+    localistCalendarUrl = "localistCalendarUrl",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
+}
+
 export enum HobbyScalarFieldEnum {
     id = "id",
     name = "name",
@@ -753,6 +824,22 @@ export enum HobbyScalarFieldEnum {
     updatedAt = "updatedAt",
     active = "active",
     userIds = "userIds"
+}
+
+export enum EventScalarFieldEnum {
+    id = "id",
+    clientId = "clientId",
+    campaignId = "campaignId",
+    userId = "userId",
+    gender = "gender",
+    eduInstituteId = "eduInstituteId",
+    platform = "platform",
+    type = "type",
+    timestamp = "timestamp",
+    screen = "screen",
+    batch = "batch",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
 }
 
 export enum EduInstituteScalarFieldEnum {
@@ -873,6 +960,26 @@ export enum CampusChatScalarFieldEnum {
     type = "type",
     description = "description",
     active = "active",
+    createdAt = "createdAt",
+    updatedAt = "updatedAt"
+}
+
+export enum CampaignScalarFieldEnum {
+    id = "id",
+    userId = "userId",
+    title = "title",
+    url = "url",
+    location = "location",
+    locationCoordinates = "locationCoordinates",
+    type = "type",
+    tag = "tag",
+    localistId = "localistId",
+    campaignImage = "campaignImage",
+    campaignStartAt = "campaignStartAt",
+    campaignEndAt = "campaignEndAt",
+    campaignDuration = "campaignDuration",
+    eventDayTime = "eventDayTime",
+    showOnApp = "showOnApp",
     createdAt = "createdAt",
     updatedAt = "updatedAt"
 }
@@ -1009,6 +1116,7 @@ registerEnumType(BannedWordScalarFieldEnum, { name: 'BannedWordScalarFieldEnum',
 registerEnumType(BannedWordsCategoryScalarFieldEnum, { name: 'BannedWordsCategoryScalarFieldEnum', description: undefined })
 registerEnumType(BannerScalarFieldEnum, { name: 'BannerScalarFieldEnum', description: undefined })
 registerEnumType(BrandScalarFieldEnum, { name: 'BrandScalarFieldEnum', description: undefined })
+registerEnumType(CampaignScalarFieldEnum, { name: 'CampaignScalarFieldEnum', description: undefined })
 registerEnumType(CampusChatScalarFieldEnum, { name: 'CampusChatScalarFieldEnum', description: undefined })
 registerEnumType(CampusChatMessageScalarFieldEnum, { name: 'CampusChatMessageScalarFieldEnum', description: undefined })
 registerEnumType(CampusChatMessagePayloadScalarFieldEnum, { name: 'CampusChatMessagePayloadScalarFieldEnum', description: undefined })
@@ -1020,7 +1128,9 @@ registerEnumType(DealScalarFieldEnum, { name: 'DealScalarFieldEnum', description
 registerEnumType(DirectMessageScalarFieldEnum, { name: 'DirectMessageScalarFieldEnum', description: undefined })
 registerEnumType(DMMessageTypeScalarFieldEnum, { name: 'DMMessageTypeScalarFieldEnum', description: undefined })
 registerEnumType(EduInstituteScalarFieldEnum, { name: 'EduInstituteScalarFieldEnum', description: undefined })
+registerEnumType(EventScalarFieldEnum, { name: 'EventScalarFieldEnum', description: undefined })
 registerEnumType(HobbyScalarFieldEnum, { name: 'HobbyScalarFieldEnum', description: undefined })
+registerEnumType(InstitutionScalarFieldEnum, { name: 'InstitutionScalarFieldEnum', description: undefined })
 registerEnumType(LegacyImagesScalarFieldEnum, { name: 'LegacyImagesScalarFieldEnum', description: undefined })
 registerEnumType(ListingSettingScalarFieldEnum, { name: 'ListingSettingScalarFieldEnum', description: undefined })
 registerEnumType(MessageScalarFieldEnum, { name: 'MessageScalarFieldEnum', description: undefined })
@@ -1029,6 +1139,7 @@ registerEnumType(NotificationPayloadsScalarFieldEnum, { name: 'NotificationPaylo
 registerEnumType(OrderScalarFieldEnum, { name: 'OrderScalarFieldEnum', description: undefined })
 registerEnumType(OrderPayoutRequestLogScalarFieldEnum, { name: 'OrderPayoutRequestLogScalarFieldEnum', description: undefined })
 registerEnumType(OtpLogScalarFieldEnum, { name: 'OtpLogScalarFieldEnum', description: undefined })
+registerEnumType(PassCodeScalarFieldEnum, { name: 'PassCodeScalarFieldEnum', description: undefined })
 registerEnumType(PaymentScalarFieldEnum, { name: 'PaymentScalarFieldEnum', description: undefined })
 registerEnumType(PayoutRequestLogScalarFieldEnum, { name: 'PayoutRequestLogScalarFieldEnum', description: undefined })
 registerEnumType(PersonalDMScalarFieldEnum, { name: 'PersonalDMScalarFieldEnum', description: undefined })
@@ -1045,6 +1156,7 @@ registerEnumType(Availability, { name: 'Availability', description: undefined })
 registerEnumType(BannerPosition, { name: 'BannerPosition', description: undefined })
 registerEnumType(BannerType, { name: 'BannerType', description: undefined })
 registerEnumType(BooleanChoice, { name: 'BooleanChoice', description: undefined })
+registerEnumType(CampaignType, { name: 'CampaignType', description: undefined })
 registerEnumType(CampusChatMessageFlaggedBy, { name: 'CampusChatMessageFlaggedBy', description: undefined })
 registerEnumType(CampusChatMessageType, { name: 'CampusChatMessageType', description: undefined })
 registerEnumType(CampusChatReportAction, { name: 'CampusChatReportAction', description: undefined })
@@ -1055,6 +1167,7 @@ registerEnumType(CTAType, { name: 'CTAType', description: undefined })
 registerEnumType(DealType, { name: 'DealType', description: undefined })
 registerEnumType(DMType, { name: 'DMType', description: undefined })
 registerEnumType(EduSelectionListType, { name: 'EduSelectionListType', description: undefined })
+registerEnumType(EventType, { name: 'EventType', description: undefined })
 registerEnumType(Gateway, { name: 'Gateway', description: undefined })
 registerEnumType(Gender, { name: 'Gender', description: undefined })
 registerEnumType(InternalCTA, { name: 'InternalCTA', description: undefined })
@@ -1088,10 +1201,13 @@ registerEnumType(SellerPayoutStatus, { name: 'SellerPayoutStatus', description: 
 registerEnumType(ShippingChargePayer, { name: 'ShippingChargePayer', description: undefined })
 registerEnumType(SortOrder, { name: 'SortOrder', description: undefined })
 registerEnumType(StoryType, { name: 'StoryType', description: undefined })
+registerEnumType(SupportStatusType, { name: 'SupportStatusType', description: undefined })
 registerEnumType(SupportTicketParticipant, { name: 'SupportTicketParticipant', description: undefined })
 registerEnumType(SupportTicketType, { name: 'SupportTicketType', description: undefined })
 registerEnumType(SystemIcons, { name: 'SystemIcons', description: undefined })
 registerEnumType(SystemNotificationType, { name: 'SystemNotificationType', description: undefined })
+registerEnumType(Tag, { name: 'Tag', description: undefined })
+registerEnumType(UniversityAdminType, { name: 'UniversityAdminType', description: undefined })
 registerEnumType(UserGenderFilter, { name: 'UserGenderFilter', description: undefined })
 registerEnumType(UserListedFilter, { name: 'UserListedFilter', description: undefined })
 registerEnumType(PrivacyPolicyScalarFieldEnum, { name: 'PrivacyPolicyScalarFieldEnum', description: undefined })
@@ -1106,7 +1222,9 @@ registerEnumType(StoryScalarFieldEnum, { name: 'StoryScalarFieldEnum', descripti
 registerEnumType(StoryPayloadScalarFieldEnum, { name: 'StoryPayloadScalarFieldEnum', description: undefined })
 registerEnumType(StoryReactionScalarFieldEnum, { name: 'StoryReactionScalarFieldEnum', description: undefined })
 registerEnumType(StoryViewScalarFieldEnum, { name: 'StoryViewScalarFieldEnum', description: undefined })
+registerEnumType(SupportRequestScalarFieldEnum, { name: 'SupportRequestScalarFieldEnum', description: undefined })
 registerEnumType(SupportTicketScalarFieldEnum, { name: 'SupportTicketScalarFieldEnum', description: undefined })
+registerEnumType(UniversityAdminScalarFieldEnum, { name: 'UniversityAdminScalarFieldEnum', description: undefined })
 registerEnumType(UserScalarFieldEnum, { name: 'UserScalarFieldEnum', description: undefined })
 registerEnumType(WeightCategoryScalarFieldEnum, { name: 'WeightCategoryScalarFieldEnum', description: undefined })
 
@@ -8493,6 +8611,826 @@ export class UpsertOneBrandArgs {
     @Field(() => BrandUpdateInput, {nullable:false})
     @Type(() => BrandUpdateInput)
     update!: InstanceType<typeof BrandUpdateInput>;
+}
+
+@ArgsType()
+export class CampaignAggregateArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+    @Field(() => [CampaignOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<CampaignOrderByWithRelationInput>;
+    @Field(() => CampaignWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class CampaignAvgOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    title?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    url?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    location?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    locationCoordinates?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    tag?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignImage?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    showOnApp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    title!: string;
+    @Field(() => String, {nullable:true})
+    url?: string;
+    @Field(() => String, {nullable:true})
+    location?: string;
+    @Field(() => String, {nullable:true})
+    locationCoordinates?: string;
+    @Field(() => CampaignCreatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignCreatetypeInput>;
+    @Field(() => Tag, {nullable:false})
+    tag!: `${Tag}`;
+    @Field(() => String, {nullable:true})
+    localistId?: string;
+    @Field(() => String, {nullable:true})
+    campaignImage?: string;
+    @Field(() => Int, {nullable:false})
+    campaignStartAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignEndAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignDuration!: number;
+    @Field(() => Int, {nullable:false})
+    eventDayTime!: number;
+    @Field(() => Boolean, {nullable:true})
+    showOnApp?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class CampaignCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    title!: string;
+    @Field(() => String, {nullable:true})
+    url?: string;
+    @Field(() => String, {nullable:true})
+    location?: string;
+    @Field(() => String, {nullable:true})
+    locationCoordinates?: string;
+    @Field(() => CampaignCreatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignCreatetypeInput>;
+    @Field(() => Tag, {nullable:false})
+    tag!: `${Tag}`;
+    @Field(() => String, {nullable:true})
+    localistId?: string;
+    @Field(() => String, {nullable:true})
+    campaignImage?: string;
+    @Field(() => Int, {nullable:false})
+    campaignStartAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignEndAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignDuration!: number;
+    @Field(() => Int, {nullable:false})
+    eventDayTime!: number;
+    @Field(() => Boolean, {nullable:true})
+    showOnApp?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class CampaignCreatetypeInput {
+    @Field(() => [CampaignType], {nullable:false})
+    set!: Array<`${CampaignType}`>;
+}
+
+@ArgsType()
+export class CampaignGroupByArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+    @Field(() => [CampaignOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<CampaignOrderByWithAggregationInput>;
+    @Field(() => [CampaignScalarFieldEnum], {nullable:false})
+    by!: Array<`${CampaignScalarFieldEnum}`>;
+    @Field(() => CampaignScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof CampaignScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class CampaignMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    title?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    url?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    location?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    locationCoordinates?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    tag?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignImage?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    showOnApp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    title?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    url?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    location?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    locationCoordinates?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    tag?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignImage?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    showOnApp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    title?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    url?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    location?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    locationCoordinates?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    tag?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignImage?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    showOnApp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => CampaignCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof CampaignCountOrderByAggregateInput>;
+    @Field(() => CampaignAvgOrderByAggregateInput, {nullable:true})
+    _avg?: InstanceType<typeof CampaignAvgOrderByAggregateInput>;
+    @Field(() => CampaignMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof CampaignMaxOrderByAggregateInput>;
+    @Field(() => CampaignMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof CampaignMinOrderByAggregateInput>;
+    @Field(() => CampaignSumOrderByAggregateInput, {nullable:true})
+    _sum?: InstanceType<typeof CampaignSumOrderByAggregateInput>;
+}
+
+@InputType()
+export class CampaignOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    title?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    url?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    location?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    locationCoordinates?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    tag?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignImage?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    showOnApp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignScalarWhereWithAggregatesInput {
+    @Field(() => [CampaignScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<CampaignScalarWhereWithAggregatesInput>;
+    @Field(() => [CampaignScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<CampaignScalarWhereWithAggregatesInput>;
+    @Field(() => [CampaignScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<CampaignScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    title?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    url?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    location?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    locationCoordinates?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => EnumCampaignTypeNullableListFilter, {nullable:true})
+    type?: InstanceType<typeof EnumCampaignTypeNullableListFilter>;
+    @Field(() => EnumTagWithAggregatesFilter, {nullable:true})
+    tag?: InstanceType<typeof EnumTagWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    localistId?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    campaignImage?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntWithAggregatesFilter>;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntWithAggregatesFilter>;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntWithAggregatesFilter>;
+    @Field(() => IntWithAggregatesFilter, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntWithAggregatesFilter>;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class CampaignSumOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    campaignStartAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignEndAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignDuration?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eventDayTime?: `${SortOrder}`;
+}
+
+@InputType()
+export class CampaignUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    title!: string;
+    @Field(() => String, {nullable:true})
+    url?: string;
+    @Field(() => String, {nullable:true})
+    location?: string;
+    @Field(() => String, {nullable:true})
+    locationCoordinates?: string;
+    @Field(() => CampaignCreatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignCreatetypeInput>;
+    @Field(() => Tag, {nullable:false})
+    tag!: `${Tag}`;
+    @Field(() => String, {nullable:true})
+    localistId?: string;
+    @Field(() => String, {nullable:true})
+    campaignImage?: string;
+    @Field(() => Int, {nullable:false})
+    campaignStartAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignEndAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignDuration!: number;
+    @Field(() => Int, {nullable:false})
+    eventDayTime!: number;
+    @Field(() => Boolean, {nullable:true})
+    showOnApp?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class CampaignUncheckedUpdateManyInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    title?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    url?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    location?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    locationCoordinates?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => CampaignUpdatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignUpdatetypeInput>;
+    @Field(() => EnumTagFieldUpdateOperationsInput, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    campaignImage?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class CampaignUncheckedUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    title?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    url?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    location?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    locationCoordinates?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => CampaignUpdatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignUpdatetypeInput>;
+    @Field(() => EnumTagFieldUpdateOperationsInput, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    campaignImage?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class CampaignUpdateManyMutationInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    title?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    url?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    location?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    locationCoordinates?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => CampaignUpdatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignUpdatetypeInput>;
+    @Field(() => EnumTagFieldUpdateOperationsInput, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    campaignImage?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class CampaignUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    title?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    url?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    location?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    locationCoordinates?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => CampaignUpdatetypeInput, {nullable:true})
+    type?: InstanceType<typeof CampaignUpdatetypeInput>;
+    @Field(() => EnumTagFieldUpdateOperationsInput, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistId?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    campaignImage?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => IntFieldUpdateOperationsInput, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class CampaignUpdatetypeInput {
+    @Field(() => [CampaignType], {nullable:true})
+    set?: Array<`${CampaignType}`>;
+    @Field(() => [CampaignType], {nullable:true})
+    push?: Array<`${CampaignType}`>;
+}
+
+@InputType()
+export class CampaignWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    AND?: Array<CampaignWhereInput>;
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    OR?: Array<CampaignWhereInput>;
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    NOT?: Array<CampaignWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    title?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    url?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    location?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    locationCoordinates?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => EnumCampaignTypeNullableListFilter, {nullable:true})
+    type?: InstanceType<typeof EnumCampaignTypeNullableListFilter>;
+    @Field(() => EnumTagFilter, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    localistId?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    campaignImage?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFilter>;
+    @Field(() => BoolFilter, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@InputType()
+export class CampaignWhereInput {
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    AND?: Array<CampaignWhereInput>;
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    OR?: Array<CampaignWhereInput>;
+    @Field(() => [CampaignWhereInput], {nullable:true})
+    NOT?: Array<CampaignWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    title?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    url?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    location?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    locationCoordinates?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => EnumCampaignTypeNullableListFilter, {nullable:true})
+    type?: InstanceType<typeof EnumCampaignTypeNullableListFilter>;
+    @Field(() => EnumTagFilter, {nullable:true})
+    tag?: InstanceType<typeof EnumTagFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    localistId?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    campaignImage?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignStartAt?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignEndAt?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    campaignDuration?: InstanceType<typeof IntFilter>;
+    @Field(() => IntFilter, {nullable:true})
+    eventDayTime?: InstanceType<typeof IntFilter>;
+    @Field(() => BoolFilter, {nullable:true})
+    showOnApp?: InstanceType<typeof BoolFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class Campaign {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    title!: string;
+    @Field(() => String, {nullable:true})
+    url!: string | null;
+    @Field(() => String, {nullable:true})
+    location!: string | null;
+    @Field(() => String, {nullable:true})
+    locationCoordinates!: string | null;
+    @Field(() => [CampaignType], {nullable:true})
+    type!: Array<`${CampaignType}`>;
+    @Field(() => Tag, {nullable:false})
+    tag!: `${Tag}`;
+    @Field(() => String, {nullable:true})
+    localistId!: string | null;
+    @Field(() => String, {nullable:true})
+    campaignImage!: string | null;
+    @Field(() => Int, {nullable:false})
+    campaignStartAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignEndAt!: number;
+    @Field(() => Int, {nullable:false})
+    campaignDuration!: number;
+    @Field(() => Int, {nullable:false})
+    eventDayTime!: number;
+    @Field(() => Boolean, {defaultValue:false,nullable:false})
+    showOnApp!: boolean;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+}
+
+@ArgsType()
+export class CreateManyCampaignArgs {
+    @Field(() => [CampaignCreateManyInput], {nullable:false})
+    @Type(() => CampaignCreateManyInput)
+    data!: Array<CampaignCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOneCampaignArgs {
+    @Field(() => CampaignCreateInput, {nullable:false})
+    @Type(() => CampaignCreateInput)
+    data!: InstanceType<typeof CampaignCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManyCampaignArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOneCampaignArgs {
+    @Field(() => CampaignWhereUniqueInput, {nullable:false})
+    @Type(() => CampaignWhereUniqueInput)
+    where!: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindFirstCampaignOrThrowArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+    @Field(() => [CampaignOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<CampaignOrderByWithRelationInput>;
+    @Field(() => CampaignWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [CampaignScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${CampaignScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstCampaignArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+    @Field(() => [CampaignOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<CampaignOrderByWithRelationInput>;
+    @Field(() => CampaignWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [CampaignScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${CampaignScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManyCampaignArgs {
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+    @Field(() => [CampaignOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<CampaignOrderByWithRelationInput>;
+    @Field(() => CampaignWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [CampaignScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${CampaignScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniqueCampaignOrThrowArgs {
+    @Field(() => CampaignWhereUniqueInput, {nullable:false})
+    @Type(() => CampaignWhereUniqueInput)
+    where!: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindUniqueCampaignArgs {
+    @Field(() => CampaignWhereUniqueInput, {nullable:false})
+    @Type(() => CampaignWhereUniqueInput)
+    where!: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class UpdateManyCampaignArgs {
+    @Field(() => CampaignUpdateManyMutationInput, {nullable:false})
+    @Type(() => CampaignUpdateManyMutationInput)
+    data!: InstanceType<typeof CampaignUpdateManyMutationInput>;
+    @Field(() => CampaignWhereInput, {nullable:true})
+    @Type(() => CampaignWhereInput)
+    where?: InstanceType<typeof CampaignWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOneCampaignArgs {
+    @Field(() => CampaignUpdateInput, {nullable:false})
+    @Type(() => CampaignUpdateInput)
+    data!: InstanceType<typeof CampaignUpdateInput>;
+    @Field(() => CampaignWhereUniqueInput, {nullable:false})
+    @Type(() => CampaignWhereUniqueInput)
+    where!: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class UpsertOneCampaignArgs {
+    @Field(() => CampaignWhereUniqueInput, {nullable:false})
+    @Type(() => CampaignWhereUniqueInput)
+    where!: Prisma.AtLeast<CampaignWhereUniqueInput, 'id'>;
+    @Field(() => CampaignCreateInput, {nullable:false})
+    @Type(() => CampaignCreateInput)
+    create!: InstanceType<typeof CampaignCreateInput>;
+    @Field(() => CampaignUpdateInput, {nullable:false})
+    @Type(() => CampaignUpdateInput)
+    update!: InstanceType<typeof CampaignUpdateInput>;
 }
 
 @ArgsType()
@@ -17656,6 +18594,660 @@ export class EduInstituteSelectOption {
     value!: string;
 }
 
+@ArgsType()
+export class CreateManyEventArgs {
+    @Field(() => [EventCreateManyInput], {nullable:false})
+    @Type(() => EventCreateManyInput)
+    data!: Array<EventCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOneEventArgs {
+    @Field(() => EventCreateInput, {nullable:false})
+    @Type(() => EventCreateInput)
+    data!: InstanceType<typeof EventCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManyEventArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOneEventArgs {
+    @Field(() => EventWhereUniqueInput, {nullable:false})
+    @Type(() => EventWhereUniqueInput)
+    where!: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+}
+
+@ArgsType()
+export class EventAggregateArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+    @Field(() => [EventOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<EventOrderByWithRelationInput>;
+    @Field(() => EventWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class EventCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    clientId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    gender?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eduInstituteId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    platform?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    timestamp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    screen?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    batch?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class EventCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    clientId!: string;
+    @Field(() => String, {nullable:false})
+    campaignId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => Gender, {nullable:false})
+    gender!: `${Gender}`;
+    @Field(() => String, {nullable:false})
+    eduInstituteId!: string;
+    @Field(() => String, {nullable:false})
+    platform!: string;
+    @Field(() => EventType, {nullable:false})
+    type!: `${EventType}`;
+    @Field(() => Date, {nullable:false})
+    timestamp!: Date | string;
+    @Field(() => String, {nullable:false})
+    screen!: string;
+    @Field(() => String, {nullable:false})
+    batch!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class EventCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    clientId!: string;
+    @Field(() => String, {nullable:false})
+    campaignId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => Gender, {nullable:false})
+    gender!: `${Gender}`;
+    @Field(() => String, {nullable:false})
+    eduInstituteId!: string;
+    @Field(() => String, {nullable:false})
+    platform!: string;
+    @Field(() => EventType, {nullable:false})
+    type!: `${EventType}`;
+    @Field(() => Date, {nullable:false})
+    timestamp!: Date | string;
+    @Field(() => String, {nullable:false})
+    screen!: string;
+    @Field(() => String, {nullable:false})
+    batch!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@ArgsType()
+export class EventGroupByArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+    @Field(() => [EventOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<EventOrderByWithAggregationInput>;
+    @Field(() => [EventScalarFieldEnum], {nullable:false})
+    by!: Array<`${EventScalarFieldEnum}`>;
+    @Field(() => EventScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof EventScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class EventMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    clientId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    gender?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eduInstituteId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    platform?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    timestamp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    screen?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    batch?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class EventMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    clientId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    gender?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eduInstituteId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    platform?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    timestamp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    screen?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    batch?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class EventOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    clientId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    gender?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eduInstituteId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    platform?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    timestamp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    screen?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    batch?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => EventCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof EventCountOrderByAggregateInput>;
+    @Field(() => EventMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof EventMaxOrderByAggregateInput>;
+    @Field(() => EventMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof EventMinOrderByAggregateInput>;
+}
+
+@InputType()
+export class EventOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    clientId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    campaignId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    gender?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    eduInstituteId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    platform?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    type?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    timestamp?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    screen?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    batch?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class EventScalarWhereWithAggregatesInput {
+    @Field(() => [EventScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<EventScalarWhereWithAggregatesInput>;
+    @Field(() => [EventScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<EventScalarWhereWithAggregatesInput>;
+    @Field(() => [EventScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<EventScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    clientId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    campaignId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => EnumGenderWithAggregatesFilter, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    platform?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => EnumEventTypeWithAggregatesFilter, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    screen?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    batch?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class EventUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    clientId!: string;
+    @Field(() => String, {nullable:false})
+    campaignId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => Gender, {nullable:false})
+    gender!: `${Gender}`;
+    @Field(() => String, {nullable:false})
+    eduInstituteId!: string;
+    @Field(() => String, {nullable:false})
+    platform!: string;
+    @Field(() => EventType, {nullable:false})
+    type!: `${EventType}`;
+    @Field(() => Date, {nullable:false})
+    timestamp!: Date | string;
+    @Field(() => String, {nullable:false})
+    screen!: string;
+    @Field(() => String, {nullable:false})
+    batch!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class EventUncheckedUpdateManyInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    clientId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    campaignId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumGenderFieldUpdateOperationsInput, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    platform?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumEventTypeFieldUpdateOperationsInput, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    screen?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    batch?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class EventUncheckedUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    clientId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    campaignId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumGenderFieldUpdateOperationsInput, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    platform?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumEventTypeFieldUpdateOperationsInput, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    screen?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    batch?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class EventUpdateManyMutationInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    clientId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    campaignId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumGenderFieldUpdateOperationsInput, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    platform?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumEventTypeFieldUpdateOperationsInput, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    screen?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    batch?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class EventUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    clientId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    campaignId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumGenderFieldUpdateOperationsInput, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    platform?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumEventTypeFieldUpdateOperationsInput, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    screen?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    batch?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class EventWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:true})
+    clientId?: string;
+    @Field(() => [EventWhereInput], {nullable:true})
+    AND?: Array<EventWhereInput>;
+    @Field(() => [EventWhereInput], {nullable:true})
+    OR?: Array<EventWhereInput>;
+    @Field(() => [EventWhereInput], {nullable:true})
+    NOT?: Array<EventWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    campaignId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumGenderFilter, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    platform?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumEventTypeFilter, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    screen?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    batch?: InstanceType<typeof StringFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@InputType()
+export class EventWhereInput {
+    @Field(() => [EventWhereInput], {nullable:true})
+    AND?: Array<EventWhereInput>;
+    @Field(() => [EventWhereInput], {nullable:true})
+    OR?: Array<EventWhereInput>;
+    @Field(() => [EventWhereInput], {nullable:true})
+    NOT?: Array<EventWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    clientId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    campaignId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumGenderFilter, {nullable:true})
+    gender?: InstanceType<typeof EnumGenderFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    eduInstituteId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    platform?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumEventTypeFilter, {nullable:true})
+    type?: InstanceType<typeof EnumEventTypeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    timestamp?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    screen?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    batch?: InstanceType<typeof StringFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class Event {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => String, {nullable:false})
+    clientId!: string;
+    @Field(() => String, {nullable:false})
+    campaignId!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => Gender, {nullable:false})
+    gender!: `${Gender}`;
+    @Field(() => String, {nullable:false})
+    eduInstituteId!: string;
+    @Field(() => String, {nullable:false})
+    platform!: string;
+    @Field(() => EventType, {nullable:false})
+    type!: `${EventType}`;
+    @Field(() => Date, {nullable:false})
+    timestamp!: Date;
+    @Field(() => String, {nullable:false})
+    screen!: string;
+    @Field(() => String, {nullable:false})
+    batch!: string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+}
+
+@ArgsType()
+export class FindFirstEventOrThrowArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+    @Field(() => [EventOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<EventOrderByWithRelationInput>;
+    @Field(() => EventWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [EventScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${EventScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstEventArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+    @Field(() => [EventOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<EventOrderByWithRelationInput>;
+    @Field(() => EventWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [EventScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${EventScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManyEventArgs {
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+    @Field(() => [EventOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<EventOrderByWithRelationInput>;
+    @Field(() => EventWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [EventScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${EventScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniqueEventOrThrowArgs {
+    @Field(() => EventWhereUniqueInput, {nullable:false})
+    @Type(() => EventWhereUniqueInput)
+    where!: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+}
+
+@ArgsType()
+export class FindUniqueEventArgs {
+    @Field(() => EventWhereUniqueInput, {nullable:false})
+    @Type(() => EventWhereUniqueInput)
+    where!: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+}
+
+@ArgsType()
+export class UpdateManyEventArgs {
+    @Field(() => EventUpdateManyMutationInput, {nullable:false})
+    @Type(() => EventUpdateManyMutationInput)
+    data!: InstanceType<typeof EventUpdateManyMutationInput>;
+    @Field(() => EventWhereInput, {nullable:true})
+    @Type(() => EventWhereInput)
+    where?: InstanceType<typeof EventWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOneEventArgs {
+    @Field(() => EventUpdateInput, {nullable:false})
+    @Type(() => EventUpdateInput)
+    data!: InstanceType<typeof EventUpdateInput>;
+    @Field(() => EventWhereUniqueInput, {nullable:false})
+    @Type(() => EventWhereUniqueInput)
+    where!: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+}
+
+@ArgsType()
+export class UpsertOneEventArgs {
+    @Field(() => EventWhereUniqueInput, {nullable:false})
+    @Type(() => EventWhereUniqueInput)
+    where!: Prisma.AtLeast<EventWhereUniqueInput, 'id' | 'clientId'>;
+    @Field(() => EventCreateInput, {nullable:false})
+    @Type(() => EventCreateInput)
+    create!: InstanceType<typeof EventCreateInput>;
+    @Field(() => EventUpdateInput, {nullable:false})
+    @Type(() => EventUpdateInput)
+    update!: InstanceType<typeof EventUpdateInput>;
+}
+
 @InputType()
 export class FeaturedProductCategoryCreateInput {
     @Field(() => Boolean, {nullable:false})
@@ -18715,6 +20307,554 @@ export class InfoSystemMessage {
     text1!: string;
     @Field(() => String, {nullable:false})
     text2!: string;
+}
+
+@ArgsType()
+export class CreateManyInstitutionArgs {
+    @Field(() => [InstitutionCreateManyInput], {nullable:false})
+    @Type(() => InstitutionCreateManyInput)
+    data!: Array<InstitutionCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOneInstitutionArgs {
+    @Field(() => InstitutionCreateInput, {nullable:false})
+    @Type(() => InstitutionCreateInput)
+    data!: InstanceType<typeof InstitutionCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManyInstitutionArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOneInstitutionArgs {
+    @Field(() => InstitutionWhereUniqueInput, {nullable:false})
+    @Type(() => InstitutionWhereUniqueInput)
+    where!: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+}
+
+@ArgsType()
+export class FindFirstInstitutionOrThrowArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+    @Field(() => [InstitutionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<InstitutionOrderByWithRelationInput>;
+    @Field(() => InstitutionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [InstitutionScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${InstitutionScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstInstitutionArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+    @Field(() => [InstitutionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<InstitutionOrderByWithRelationInput>;
+    @Field(() => InstitutionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [InstitutionScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${InstitutionScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManyInstitutionArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+    @Field(() => [InstitutionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<InstitutionOrderByWithRelationInput>;
+    @Field(() => InstitutionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [InstitutionScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${InstitutionScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniqueInstitutionOrThrowArgs {
+    @Field(() => InstitutionWhereUniqueInput, {nullable:false})
+    @Type(() => InstitutionWhereUniqueInput)
+    where!: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+}
+
+@ArgsType()
+export class FindUniqueInstitutionArgs {
+    @Field(() => InstitutionWhereUniqueInput, {nullable:false})
+    @Type(() => InstitutionWhereUniqueInput)
+    where!: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+}
+
+@ArgsType()
+export class InstitutionAggregateArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+    @Field(() => [InstitutionOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<InstitutionOrderByWithRelationInput>;
+    @Field(() => InstitutionWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class InstitutionCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    institutionName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    slug?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    logo?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    schoolColor?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistCalendarUrl?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class InstitutionCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    institutionName!: string;
+    @Field(() => String, {nullable:false})
+    slug!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => String, {nullable:true})
+    logo?: string;
+    @Field(() => String, {nullable:true})
+    schoolColor?: string;
+    @Field(() => String, {nullable:true})
+    localistCalendarUrl?: string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class InstitutionCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    institutionName!: string;
+    @Field(() => String, {nullable:false})
+    slug!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => String, {nullable:true})
+    logo?: string;
+    @Field(() => String, {nullable:true})
+    schoolColor?: string;
+    @Field(() => String, {nullable:true})
+    localistCalendarUrl?: string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@ArgsType()
+export class InstitutionGroupByArgs {
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+    @Field(() => [InstitutionOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<InstitutionOrderByWithAggregationInput>;
+    @Field(() => [InstitutionScalarFieldEnum], {nullable:false})
+    by!: Array<`${InstitutionScalarFieldEnum}`>;
+    @Field(() => InstitutionScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof InstitutionScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class InstitutionMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    institutionName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    slug?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    logo?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    schoolColor?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistCalendarUrl?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class InstitutionMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    institutionName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    slug?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    logo?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    schoolColor?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistCalendarUrl?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class InstitutionOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    institutionName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    slug?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    logo?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    schoolColor?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistCalendarUrl?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => InstitutionCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof InstitutionCountOrderByAggregateInput>;
+    @Field(() => InstitutionMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof InstitutionMaxOrderByAggregateInput>;
+    @Field(() => InstitutionMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof InstitutionMinOrderByAggregateInput>;
+}
+
+@InputType()
+export class InstitutionOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    institutionName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    slug?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    logo?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    schoolColor?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    localistCalendarUrl?: `${SortOrder}`;
+    @Field(() => SessionOrderByCompositeAggregateInput, {nullable:true})
+    sessions?: InstanceType<typeof SessionOrderByCompositeAggregateInput>;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class InstitutionScalarWhereWithAggregatesInput {
+    @Field(() => [InstitutionScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<InstitutionScalarWhereWithAggregatesInput>;
+    @Field(() => [InstitutionScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<InstitutionScalarWhereWithAggregatesInput>;
+    @Field(() => [InstitutionScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<InstitutionScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    institutionName?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    slug?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    logo?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    schoolColor?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => StringNullableWithAggregatesFilter, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof StringNullableWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class InstitutionUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    institutionName!: string;
+    @Field(() => String, {nullable:false})
+    slug!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => String, {nullable:true})
+    logo?: string;
+    @Field(() => String, {nullable:true})
+    schoolColor?: string;
+    @Field(() => String, {nullable:true})
+    localistCalendarUrl?: string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class InstitutionUncheckedUpdateManyInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    institutionName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    slug?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    logo?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    schoolColor?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class InstitutionUncheckedUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    institutionName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    slug?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    logo?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    schoolColor?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class InstitutionUpdateManyMutationInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    institutionName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    slug?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    logo?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    schoolColor?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class InstitutionUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    institutionName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    slug?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    logo?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    schoolColor?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => NullableStringFieldUpdateOperationsInput, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof NullableStringFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class InstitutionWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:true})
+    slug?: string;
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    AND?: Array<InstitutionWhereInput>;
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    OR?: Array<InstitutionWhereInput>;
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    NOT?: Array<InstitutionWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    institutionName?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    logo?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    schoolColor?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => [SessionObjectEqualityInput], {nullable:true})
+    sessions?: Array<SessionObjectEqualityInput>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@InputType()
+export class InstitutionWhereInput {
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    AND?: Array<InstitutionWhereInput>;
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    OR?: Array<InstitutionWhereInput>;
+    @Field(() => [InstitutionWhereInput], {nullable:true})
+    NOT?: Array<InstitutionWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    institutionName?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    slug?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    logo?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    schoolColor?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => StringNullableFilter, {nullable:true})
+    localistCalendarUrl?: InstanceType<typeof StringNullableFilter>;
+    @Field(() => [SessionObjectEqualityInput], {nullable:true})
+    sessions?: Array<SessionObjectEqualityInput>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class Institution {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => String, {nullable:false})
+    institutionName!: string;
+    @Field(() => String, {nullable:false})
+    slug!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => String, {nullable:true})
+    logo!: string | null;
+    @Field(() => String, {nullable:true})
+    schoolColor!: string | null;
+    @Field(() => String, {nullable:true})
+    localistCalendarUrl!: string | null;
+    @Field(() => [Session], {nullable:true})
+    sessions?: Array<Session>;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+}
+
+@ArgsType()
+export class UpdateManyInstitutionArgs {
+    @Field(() => InstitutionUpdateManyMutationInput, {nullable:false})
+    @Type(() => InstitutionUpdateManyMutationInput)
+    data!: InstanceType<typeof InstitutionUpdateManyMutationInput>;
+    @Field(() => InstitutionWhereInput, {nullable:true})
+    @Type(() => InstitutionWhereInput)
+    where?: InstanceType<typeof InstitutionWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOneInstitutionArgs {
+    @Field(() => InstitutionUpdateInput, {nullable:false})
+    @Type(() => InstitutionUpdateInput)
+    data!: InstanceType<typeof InstitutionUpdateInput>;
+    @Field(() => InstitutionWhereUniqueInput, {nullable:false})
+    @Type(() => InstitutionWhereUniqueInput)
+    where!: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+}
+
+@ArgsType()
+export class UpsertOneInstitutionArgs {
+    @Field(() => InstitutionWhereUniqueInput, {nullable:false})
+    @Type(() => InstitutionWhereUniqueInput)
+    where!: Prisma.AtLeast<InstitutionWhereUniqueInput, 'id' | 'slug'>;
+    @Field(() => InstitutionCreateInput, {nullable:false})
+    @Type(() => InstitutionCreateInput)
+    create!: InstanceType<typeof InstitutionCreateInput>;
+    @Field(() => InstitutionUpdateInput, {nullable:false})
+    @Type(() => InstitutionUpdateInput)
+    update!: InstanceType<typeof InstitutionUpdateInput>;
 }
 
 @ArgsType()
@@ -24177,6 +26317,436 @@ export class PackageWeight {
 }
 
 @ArgsType()
+export class CreateManyPassCodeArgs {
+    @Field(() => [PassCodeCreateManyInput], {nullable:false})
+    @Type(() => PassCodeCreateManyInput)
+    data!: Array<PassCodeCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOnePassCodeArgs {
+    @Field(() => PassCodeCreateInput, {nullable:false})
+    @Type(() => PassCodeCreateInput)
+    data!: InstanceType<typeof PassCodeCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManyPassCodeArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOnePassCodeArgs {
+    @Field(() => PassCodeWhereUniqueInput, {nullable:false})
+    @Type(() => PassCodeWhereUniqueInput)
+    where!: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindFirstPassCodeOrThrowArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+    @Field(() => [PassCodeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PassCodeOrderByWithRelationInput>;
+    @Field(() => PassCodeWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [PassCodeScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${PassCodeScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstPassCodeArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+    @Field(() => [PassCodeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PassCodeOrderByWithRelationInput>;
+    @Field(() => PassCodeWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [PassCodeScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${PassCodeScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManyPassCodeArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+    @Field(() => [PassCodeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PassCodeOrderByWithRelationInput>;
+    @Field(() => PassCodeWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [PassCodeScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${PassCodeScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniquePassCodeOrThrowArgs {
+    @Field(() => PassCodeWhereUniqueInput, {nullable:false})
+    @Type(() => PassCodeWhereUniqueInput)
+    where!: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindUniquePassCodeArgs {
+    @Field(() => PassCodeWhereUniqueInput, {nullable:false})
+    @Type(() => PassCodeWhereUniqueInput)
+    where!: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class PassCodeAggregateArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+    @Field(() => [PassCodeOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<PassCodeOrderByWithRelationInput>;
+    @Field(() => PassCodeWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class PassCodeCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    isPassed?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class PassCodeCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => Boolean, {nullable:true})
+    isPassed?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class PassCodeCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => Boolean, {nullable:true})
+    isPassed?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@ArgsType()
+export class PassCodeGroupByArgs {
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+    @Field(() => [PassCodeOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<PassCodeOrderByWithAggregationInput>;
+    @Field(() => [PassCodeScalarFieldEnum], {nullable:false})
+    by!: Array<`${PassCodeScalarFieldEnum}`>;
+    @Field(() => PassCodeScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof PassCodeScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class PassCodeMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    isPassed?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class PassCodeMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    isPassed?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class PassCodeOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    isPassed?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => PassCodeCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof PassCodeCountOrderByAggregateInput>;
+    @Field(() => PassCodeMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof PassCodeMaxOrderByAggregateInput>;
+    @Field(() => PassCodeMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof PassCodeMinOrderByAggregateInput>;
+}
+
+@InputType()
+export class PassCodeOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    passCode?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    isPassed?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class PassCodeScalarWhereWithAggregatesInput {
+    @Field(() => [PassCodeScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<PassCodeScalarWhereWithAggregatesInput>;
+    @Field(() => [PassCodeScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<PassCodeScalarWhereWithAggregatesInput>;
+    @Field(() => [PassCodeScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<PassCodeScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => BoolWithAggregatesFilter, {nullable:true})
+    isPassed?: InstanceType<typeof BoolWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class PassCodeUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => Boolean, {nullable:true})
+    isPassed?: boolean;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class PassCodeUncheckedUpdateManyInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class PassCodeUncheckedUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class PassCodeUpdateManyMutationInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class PassCodeUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    passCode?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class PassCodeWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    AND?: Array<PassCodeWhereInput>;
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    OR?: Array<PassCodeWhereInput>;
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    NOT?: Array<PassCodeWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringFilter>;
+    @Field(() => BoolFilter, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@InputType()
+export class PassCodeWhereInput {
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    AND?: Array<PassCodeWhereInput>;
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    OR?: Array<PassCodeWhereInput>;
+    @Field(() => [PassCodeWhereInput], {nullable:true})
+    NOT?: Array<PassCodeWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    passCode?: InstanceType<typeof StringFilter>;
+    @Field(() => BoolFilter, {nullable:true})
+    isPassed?: InstanceType<typeof BoolFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class PassCode {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    passCode!: string;
+    @Field(() => Boolean, {defaultValue:false,nullable:false})
+    isPassed!: boolean;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+}
+
+@ArgsType()
+export class UpdateManyPassCodeArgs {
+    @Field(() => PassCodeUpdateManyMutationInput, {nullable:false})
+    @Type(() => PassCodeUpdateManyMutationInput)
+    data!: InstanceType<typeof PassCodeUpdateManyMutationInput>;
+    @Field(() => PassCodeWhereInput, {nullable:true})
+    @Type(() => PassCodeWhereInput)
+    where?: InstanceType<typeof PassCodeWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOnePassCodeArgs {
+    @Field(() => PassCodeUpdateInput, {nullable:false})
+    @Type(() => PassCodeUpdateInput)
+    data!: InstanceType<typeof PassCodeUpdateInput>;
+    @Field(() => PassCodeWhereUniqueInput, {nullable:false})
+    @Type(() => PassCodeWhereUniqueInput)
+    where!: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class UpsertOnePassCodeArgs {
+    @Field(() => PassCodeWhereUniqueInput, {nullable:false})
+    @Type(() => PassCodeWhereUniqueInput)
+    where!: Prisma.AtLeast<PassCodeWhereUniqueInput, 'id'>;
+    @Field(() => PassCodeCreateInput, {nullable:false})
+    @Type(() => PassCodeCreateInput)
+    create!: InstanceType<typeof PassCodeCreateInput>;
+    @Field(() => PassCodeUpdateInput, {nullable:false})
+    @Type(() => PassCodeUpdateInput)
+    update!: InstanceType<typeof PassCodeUpdateInput>;
+}
+
+@ArgsType()
 export class CreateManyPaymentArgs {
     @Field(() => [PaymentCreateManyInput], {nullable:false})
     @Type(() => PaymentCreateManyInput)
@@ -26249,6 +28819,14 @@ export class AggregateBrandRawArgs {
 }
 
 @ArgsType()
+export class AggregateCampaignRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class AggregateCampusChatMessagePayloadRawArgs {
     @Field(() => [GraphQLJSON], {nullable:true})
     pipeline?: Array<any>;
@@ -26352,7 +28930,23 @@ export class AggregateEduInstituteRawArgs {
 }
 
 @ArgsType()
+export class AggregateEventRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class AggregateHobbyRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
+export class AggregateInstitutionRawArgs {
     @Field(() => [GraphQLJSON], {nullable:true})
     pipeline?: Array<any>;
     @Field(() => GraphQLJSON, {nullable:true})
@@ -26417,6 +29011,14 @@ export class AggregateOrderRawArgs {
 
 @ArgsType()
 export class AggregateOtpLogRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
+export class AggregatePassCodeRawArgs {
     @Field(() => [GraphQLJSON], {nullable:true})
     pipeline?: Array<any>;
     @Field(() => GraphQLJSON, {nullable:true})
@@ -26559,7 +29161,23 @@ export class AggregateStoryViewRawArgs {
 }
 
 @ArgsType()
+export class AggregateSupportRequestRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class AggregateSupportTicketRawArgs {
+    @Field(() => [GraphQLJSON], {nullable:true})
+    pipeline?: Array<any>;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
+export class AggregateUniversityAdminRawArgs {
     @Field(() => [GraphQLJSON], {nullable:true})
     pipeline?: Array<any>;
     @Field(() => GraphQLJSON, {nullable:true})
@@ -27628,6 +30246,20 @@ export class EnumBooleanChoiceNullableFilter {
 }
 
 @InputType()
+export class EnumCampaignTypeNullableListFilter {
+    @Field(() => [CampaignType], {nullable:true})
+    equals?: Array<`${CampaignType}`>;
+    @Field(() => CampaignType, {nullable:true})
+    has?: `${CampaignType}`;
+    @Field(() => [CampaignType], {nullable:true})
+    hasEvery?: Array<`${CampaignType}`>;
+    @Field(() => [CampaignType], {nullable:true})
+    hasSome?: Array<`${CampaignType}`>;
+    @Field(() => Boolean, {nullable:true})
+    isEmpty?: boolean;
+}
+
+@InputType()
 export class EnumCampusChatMessageFlaggedByNullableFilter {
     @Field(() => CampusChatMessageFlaggedBy, {nullable:true})
     equals?: `${CampusChatMessageFlaggedBy}`;
@@ -27960,6 +30592,42 @@ export class EnumEduSelectionListTypeWithAggregatesFilter {
 }
 
 @InputType()
+export class EnumEventTypeFieldUpdateOperationsInput {
+    @Field(() => EventType, {nullable:true})
+    set?: `${EventType}`;
+}
+
+@InputType()
+export class EnumEventTypeFilter {
+    @Field(() => EventType, {nullable:true})
+    equals?: `${EventType}`;
+    @Field(() => [EventType], {nullable:true})
+    in?: Array<`${EventType}`>;
+    @Field(() => [EventType], {nullable:true})
+    notIn?: Array<`${EventType}`>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumEventTypeFilter>;
+}
+
+@InputType()
+export class EnumEventTypeWithAggregatesFilter {
+    @Field(() => EventType, {nullable:true})
+    equals?: `${EventType}`;
+    @Field(() => [EventType], {nullable:true})
+    in?: Array<`${EventType}`>;
+    @Field(() => [EventType], {nullable:true})
+    notIn?: Array<`${EventType}`>;
+    @Field(() => NestedEnumEventTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumEventTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumEventTypeFilter>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumEventTypeFilter>;
+}
+
+@InputType()
 export class EnumGatewayFieldUpdateOperationsInput {
     @Field(() => Gateway, {nullable:true})
     set?: `${Gateway}`;
@@ -27993,6 +30661,24 @@ export class EnumGatewayWithAggregatesFilter {
     _min?: InstanceType<typeof NestedEnumGatewayFilter>;
     @Field(() => NestedEnumGatewayFilter, {nullable:true})
     _max?: InstanceType<typeof NestedEnumGatewayFilter>;
+}
+
+@InputType()
+export class EnumGenderFieldUpdateOperationsInput {
+    @Field(() => Gender, {nullable:true})
+    set?: `${Gender}`;
+}
+
+@InputType()
+export class EnumGenderFilter {
+    @Field(() => Gender, {nullable:true})
+    equals?: `${Gender}`;
+    @Field(() => [Gender], {nullable:true})
+    in?: Array<`${Gender}`>;
+    @Field(() => [Gender], {nullable:true})
+    notIn?: Array<`${Gender}`>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumGenderFilter>;
 }
 
 @InputType()
@@ -28041,6 +30727,24 @@ export class EnumGenderNullableWithAggregatesFilter {
     _max?: InstanceType<typeof NestedEnumGenderNullableFilter>;
     @Field(() => Boolean, {nullable:true})
     isSet?: boolean;
+}
+
+@InputType()
+export class EnumGenderWithAggregatesFilter {
+    @Field(() => Gender, {nullable:true})
+    equals?: `${Gender}`;
+    @Field(() => [Gender], {nullable:true})
+    in?: Array<`${Gender}`>;
+    @Field(() => [Gender], {nullable:true})
+    notIn?: Array<`${Gender}`>;
+    @Field(() => NestedEnumGenderWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumGenderWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumGenderFilter>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumGenderFilter>;
 }
 
 @InputType()
@@ -28920,6 +31624,42 @@ export class EnumStoryTypeWithAggregatesFilter {
 }
 
 @InputType()
+export class EnumSupportStatusTypeFieldUpdateOperationsInput {
+    @Field(() => SupportStatusType, {nullable:true})
+    set?: `${SupportStatusType}`;
+}
+
+@InputType()
+export class EnumSupportStatusTypeFilter {
+    @Field(() => SupportStatusType, {nullable:true})
+    equals?: `${SupportStatusType}`;
+    @Field(() => [SupportStatusType], {nullable:true})
+    in?: Array<`${SupportStatusType}`>;
+    @Field(() => [SupportStatusType], {nullable:true})
+    notIn?: Array<`${SupportStatusType}`>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+}
+
+@InputType()
+export class EnumSupportStatusTypeWithAggregatesFilter {
+    @Field(() => SupportStatusType, {nullable:true})
+    equals?: `${SupportStatusType}`;
+    @Field(() => [SupportStatusType], {nullable:true})
+    in?: Array<`${SupportStatusType}`>;
+    @Field(() => [SupportStatusType], {nullable:true})
+    notIn?: Array<`${SupportStatusType}`>;
+    @Field(() => NestedEnumSupportStatusTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumSupportStatusTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+}
+
+@InputType()
 export class EnumSupportTicketParticipantFieldUpdateOperationsInput {
     @Field(() => SupportTicketParticipant, {nullable:true})
     set?: `${SupportTicketParticipant}`;
@@ -29025,6 +31765,78 @@ export class EnumSystemNotificationTypeFilter {
     notIn?: Array<`${SystemNotificationType}`>;
     @Field(() => NestedEnumSystemNotificationTypeFilter, {nullable:true})
     not?: InstanceType<typeof NestedEnumSystemNotificationTypeFilter>;
+}
+
+@InputType()
+export class EnumTagFieldUpdateOperationsInput {
+    @Field(() => Tag, {nullable:true})
+    set?: `${Tag}`;
+}
+
+@InputType()
+export class EnumTagFilter {
+    @Field(() => Tag, {nullable:true})
+    equals?: `${Tag}`;
+    @Field(() => [Tag], {nullable:true})
+    in?: Array<`${Tag}`>;
+    @Field(() => [Tag], {nullable:true})
+    notIn?: Array<`${Tag}`>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumTagFilter>;
+}
+
+@InputType()
+export class EnumTagWithAggregatesFilter {
+    @Field(() => Tag, {nullable:true})
+    equals?: `${Tag}`;
+    @Field(() => [Tag], {nullable:true})
+    in?: Array<`${Tag}`>;
+    @Field(() => [Tag], {nullable:true})
+    notIn?: Array<`${Tag}`>;
+    @Field(() => NestedEnumTagWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumTagWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumTagFilter>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumTagFilter>;
+}
+
+@InputType()
+export class EnumUniversityAdminTypeFieldUpdateOperationsInput {
+    @Field(() => UniversityAdminType, {nullable:true})
+    set?: `${UniversityAdminType}`;
+}
+
+@InputType()
+export class EnumUniversityAdminTypeFilter {
+    @Field(() => UniversityAdminType, {nullable:true})
+    equals?: `${UniversityAdminType}`;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    in?: Array<`${UniversityAdminType}`>;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    notIn?: Array<`${UniversityAdminType}`>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
+}
+
+@InputType()
+export class EnumUniversityAdminTypeWithAggregatesFilter {
+    @Field(() => UniversityAdminType, {nullable:true})
+    equals?: `${UniversityAdminType}`;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    in?: Array<`${UniversityAdminType}`>;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    notIn?: Array<`${UniversityAdminType}`>;
+    @Field(() => NestedEnumUniversityAdminTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumUniversityAdminTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
 }
 
 @InputType()
@@ -29235,6 +32047,14 @@ export class FindBrandRawArgs {
 }
 
 @ArgsType()
+export class FindCampaignRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class FindCampusChatMessagePayloadRawArgs {
     @Field(() => GraphQLJSON, {nullable:true})
     filter?: any;
@@ -29323,6 +32143,14 @@ export class FindEduInstituteRawArgs {
 }
 
 @ArgsType()
+export class FindEventRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class FindFirstDmMessageTypeOrThrowArgs {
     @Field(() => DMMessageTypeWhereInput, {nullable:true})
     @Type(() => DMMessageTypeWhereInput)
@@ -29392,6 +32220,14 @@ export class FindFirstPersonalDmArgs {
 
 @ArgsType()
 export class FindHobbyRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
+export class FindInstitutionRawArgs {
     @Field(() => GraphQLJSON, {nullable:true})
     filter?: any;
     @Field(() => GraphQLJSON, {nullable:true})
@@ -29490,6 +32326,14 @@ export class FindOrderRawArgs {
 
 @ArgsType()
 export class FindOtpLogRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
+export class FindPassCodeRawArgs {
     @Field(() => GraphQLJSON, {nullable:true})
     filter?: any;
     @Field(() => GraphQLJSON, {nullable:true})
@@ -29617,6 +32461,14 @@ export class FindStoryViewRawArgs {
 }
 
 @ArgsType()
+export class FindSupportRequestRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
+}
+
+@ArgsType()
 export class FindSupportTicketRawArgs {
     @Field(() => GraphQLJSON, {nullable:true})
     filter?: any;
@@ -29650,6 +32502,14 @@ export class FindUniquePersonalDmArgs {
     @Field(() => PersonalDMWhereUniqueInput, {nullable:false})
     @Type(() => PersonalDMWhereUniqueInput)
     where!: InstanceType<typeof PersonalDMWhereUniqueInput>;
+}
+
+@ArgsType()
+export class FindUniversityAdminRawArgs {
+    @Field(() => GraphQLJSON, {nullable:true})
+    filter?: any;
+    @Field(() => GraphQLJSON, {nullable:true})
+    options?: any;
 }
 
 @ArgsType()
@@ -30963,6 +33823,36 @@ export class NestedEnumEduSelectionListTypeWithAggregatesFilter {
 }
 
 @InputType()
+export class NestedEnumEventTypeFilter {
+    @Field(() => EventType, {nullable:true})
+    equals?: `${EventType}`;
+    @Field(() => [EventType], {nullable:true})
+    in?: Array<`${EventType}`>;
+    @Field(() => [EventType], {nullable:true})
+    notIn?: Array<`${EventType}`>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumEventTypeFilter>;
+}
+
+@InputType()
+export class NestedEnumEventTypeWithAggregatesFilter {
+    @Field(() => EventType, {nullable:true})
+    equals?: `${EventType}`;
+    @Field(() => [EventType], {nullable:true})
+    in?: Array<`${EventType}`>;
+    @Field(() => [EventType], {nullable:true})
+    notIn?: Array<`${EventType}`>;
+    @Field(() => NestedEnumEventTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumEventTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumEventTypeFilter>;
+    @Field(() => NestedEnumEventTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumEventTypeFilter>;
+}
+
+@InputType()
 export class NestedEnumGatewayFilter {
     @Field(() => Gateway, {nullable:true})
     equals?: `${Gateway}`;
@@ -30990,6 +33880,18 @@ export class NestedEnumGatewayWithAggregatesFilter {
     _min?: InstanceType<typeof NestedEnumGatewayFilter>;
     @Field(() => NestedEnumGatewayFilter, {nullable:true})
     _max?: InstanceType<typeof NestedEnumGatewayFilter>;
+}
+
+@InputType()
+export class NestedEnumGenderFilter {
+    @Field(() => Gender, {nullable:true})
+    equals?: `${Gender}`;
+    @Field(() => [Gender], {nullable:true})
+    in?: Array<`${Gender}`>;
+    @Field(() => [Gender], {nullable:true})
+    notIn?: Array<`${Gender}`>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumGenderFilter>;
 }
 
 @InputType()
@@ -31024,6 +33926,24 @@ export class NestedEnumGenderNullableWithAggregatesFilter {
     _max?: InstanceType<typeof NestedEnumGenderNullableFilter>;
     @Field(() => Boolean, {nullable:true})
     isSet?: boolean;
+}
+
+@InputType()
+export class NestedEnumGenderWithAggregatesFilter {
+    @Field(() => Gender, {nullable:true})
+    equals?: `${Gender}`;
+    @Field(() => [Gender], {nullable:true})
+    in?: Array<`${Gender}`>;
+    @Field(() => [Gender], {nullable:true})
+    notIn?: Array<`${Gender}`>;
+    @Field(() => NestedEnumGenderWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumGenderWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumGenderFilter>;
+    @Field(() => NestedEnumGenderFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumGenderFilter>;
 }
 
 @InputType()
@@ -31751,6 +34671,36 @@ export class NestedEnumStoryTypeWithAggregatesFilter {
 }
 
 @InputType()
+export class NestedEnumSupportStatusTypeFilter {
+    @Field(() => SupportStatusType, {nullable:true})
+    equals?: `${SupportStatusType}`;
+    @Field(() => [SupportStatusType], {nullable:true})
+    in?: Array<`${SupportStatusType}`>;
+    @Field(() => [SupportStatusType], {nullable:true})
+    notIn?: Array<`${SupportStatusType}`>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+}
+
+@InputType()
+export class NestedEnumSupportStatusTypeWithAggregatesFilter {
+    @Field(() => SupportStatusType, {nullable:true})
+    equals?: `${SupportStatusType}`;
+    @Field(() => [SupportStatusType], {nullable:true})
+    in?: Array<`${SupportStatusType}`>;
+    @Field(() => [SupportStatusType], {nullable:true})
+    notIn?: Array<`${SupportStatusType}`>;
+    @Field(() => NestedEnumSupportStatusTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumSupportStatusTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+    @Field(() => NestedEnumSupportStatusTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumSupportStatusTypeFilter>;
+}
+
+@InputType()
 export class NestedEnumSupportTicketParticipantFilter {
     @Field(() => SupportTicketParticipant, {nullable:true})
     equals?: `${SupportTicketParticipant}`;
@@ -31832,6 +34782,66 @@ export class NestedEnumSystemNotificationTypeFilter {
     notIn?: Array<`${SystemNotificationType}`>;
     @Field(() => NestedEnumSystemNotificationTypeFilter, {nullable:true})
     not?: InstanceType<typeof NestedEnumSystemNotificationTypeFilter>;
+}
+
+@InputType()
+export class NestedEnumTagFilter {
+    @Field(() => Tag, {nullable:true})
+    equals?: `${Tag}`;
+    @Field(() => [Tag], {nullable:true})
+    in?: Array<`${Tag}`>;
+    @Field(() => [Tag], {nullable:true})
+    notIn?: Array<`${Tag}`>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumTagFilter>;
+}
+
+@InputType()
+export class NestedEnumTagWithAggregatesFilter {
+    @Field(() => Tag, {nullable:true})
+    equals?: `${Tag}`;
+    @Field(() => [Tag], {nullable:true})
+    in?: Array<`${Tag}`>;
+    @Field(() => [Tag], {nullable:true})
+    notIn?: Array<`${Tag}`>;
+    @Field(() => NestedEnumTagWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumTagWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumTagFilter>;
+    @Field(() => NestedEnumTagFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumTagFilter>;
+}
+
+@InputType()
+export class NestedEnumUniversityAdminTypeFilter {
+    @Field(() => UniversityAdminType, {nullable:true})
+    equals?: `${UniversityAdminType}`;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    in?: Array<`${UniversityAdminType}`>;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    notIn?: Array<`${UniversityAdminType}`>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
+}
+
+@InputType()
+export class NestedEnumUniversityAdminTypeWithAggregatesFilter {
+    @Field(() => UniversityAdminType, {nullable:true})
+    equals?: `${UniversityAdminType}`;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    in?: Array<`${UniversityAdminType}`>;
+    @Field(() => [UniversityAdminType], {nullable:true})
+    notIn?: Array<`${UniversityAdminType}`>;
+    @Field(() => NestedEnumUniversityAdminTypeWithAggregatesFilter, {nullable:true})
+    not?: InstanceType<typeof NestedEnumUniversityAdminTypeWithAggregatesFilter>;
+    @Field(() => NestedIntFilter, {nullable:true})
+    _count?: InstanceType<typeof NestedIntFilter>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    _min?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
+    @Field(() => NestedEnumUniversityAdminTypeFilter, {nullable:true})
+    _max?: InstanceType<typeof NestedEnumUniversityAdminTypeFilter>;
 }
 
 @InputType()
@@ -32997,6 +36007,65 @@ export class RentingPreferenceUpsertInput {
 export class RunCommandRawArgs {
     @Field(() => GraphQLJSON, {nullable:false})
     command!: any;
+}
+
+@InputType()
+export class SessionCompositeListFilter {
+    @Field(() => [SessionObjectEqualityInput], {nullable:true})
+    equals?: Array<SessionObjectEqualityInput>;
+    @Field(() => SessionWhereInput, {nullable:true})
+    every?: InstanceType<typeof SessionWhereInput>;
+    @Field(() => SessionWhereInput, {nullable:true})
+    some?: InstanceType<typeof SessionWhereInput>;
+    @Field(() => SessionWhereInput, {nullable:true})
+    none?: InstanceType<typeof SessionWhereInput>;
+    @Field(() => Boolean, {nullable:true})
+    isEmpty?: boolean;
+    @Field(() => Boolean, {nullable:true})
+    isSet?: boolean;
+}
+
+@InputType()
+export class SessionDeleteManyInput {
+    @Field(() => SessionWhereInput, {nullable:false})
+    @Type(() => SessionWhereInput)
+    where!: InstanceType<typeof SessionWhereInput>;
+}
+
+@InputType()
+export class SessionListCreateEnvelopeInput {
+    @Field(() => [SessionCreateInput], {nullable:true})
+    @Type(() => SessionCreateInput)
+    set?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class SessionListUpdateEnvelopeInput {
+    @Field(() => [SessionCreateInput], {nullable:true})
+    @Type(() => SessionCreateInput)
+    set?: Array<SessionCreateInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    push?: Array<SessionCreateInput>;
+    @Field(() => SessionUpdateManyInput, {nullable:true})
+    @Type(() => SessionUpdateManyInput)
+    updateMany?: InstanceType<typeof SessionUpdateManyInput>;
+    @Field(() => SessionDeleteManyInput, {nullable:true})
+    @Type(() => SessionDeleteManyInput)
+    deleteMany?: InstanceType<typeof SessionDeleteManyInput>;
+}
+
+@InputType()
+export class SessionObjectEqualityInput {
+    @Field(() => String, {nullable:false})
+    token!: string;
+    @Field(() => String, {nullable:false})
+    deviceModel!: string;
+    @Field(() => Boolean, {nullable:false})
+    valid!: boolean;
+    @Field(() => Date, {nullable:false})
+    started!: Date | string;
+    @Field(() => Date, {nullable:false})
+    lastSeen!: Date | string;
 }
 
 @InputType()
@@ -45574,6 +48643,84 @@ export class RentingPreference {
 }
 
 @InputType()
+export class SessionCreateInput {
+    @Field(() => String, {nullable:false})
+    token!: string;
+    @Field(() => String, {nullable:false})
+    deviceModel!: string;
+    @Field(() => Boolean, {nullable:true})
+    valid?: boolean;
+    @Field(() => Date, {nullable:true})
+    started?: Date | string;
+    @Field(() => Date, {nullable:true})
+    lastSeen?: Date | string;
+}
+
+@InputType()
+export class SessionOrderByCompositeAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    _count?: `${SortOrder}`;
+}
+
+@InputType()
+export class SessionUpdateManyInput {
+    @Field(() => SessionWhereInput, {nullable:false})
+    @Type(() => SessionWhereInput)
+    where!: InstanceType<typeof SessionWhereInput>;
+    @Field(() => SessionUpdateInput, {nullable:false})
+    @Type(() => SessionUpdateInput)
+    data!: InstanceType<typeof SessionUpdateInput>;
+}
+
+@InputType()
+export class SessionUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    token?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    deviceModel?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => BoolFieldUpdateOperationsInput, {nullable:true})
+    valid?: InstanceType<typeof BoolFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    started?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    lastSeen?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class SessionWhereInput {
+    @Field(() => [SessionWhereInput], {nullable:true})
+    AND?: Array<SessionWhereInput>;
+    @Field(() => [SessionWhereInput], {nullable:true})
+    OR?: Array<SessionWhereInput>;
+    @Field(() => [SessionWhereInput], {nullable:true})
+    NOT?: Array<SessionWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    token?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    deviceModel?: InstanceType<typeof StringFilter>;
+    @Field(() => BoolFilter, {nullable:true})
+    valid?: InstanceType<typeof BoolFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    started?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    lastSeen?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class Session {
+    @Field(() => String, {nullable:false})
+    token!: string;
+    @Field(() => String, {nullable:false})
+    deviceModel!: string;
+    @Field(() => Boolean, {defaultValue:true,nullable:false})
+    valid!: boolean;
+    @Field(() => Date, {nullable:false})
+    started!: Date;
+    @Field(() => Date, {nullable:false})
+    lastSeen!: Date;
+}
+
+@InputType()
 export class ShipmentCreateInput {
     @Field(() => String, {nullable:true})
     labelId?: string;
@@ -48591,6 +51738,500 @@ export class SupportMessage {
 }
 
 @ArgsType()
+export class CreateManySupportRequestArgs {
+    @Field(() => [SupportRequestCreateManyInput], {nullable:false})
+    @Type(() => SupportRequestCreateManyInput)
+    data!: Array<SupportRequestCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOneSupportRequestArgs {
+    @Field(() => SupportRequestCreateInput, {nullable:false})
+    @Type(() => SupportRequestCreateInput)
+    data!: InstanceType<typeof SupportRequestCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManySupportRequestArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOneSupportRequestArgs {
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:false})
+    @Type(() => SupportRequestWhereUniqueInput)
+    where!: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindFirstSupportRequestOrThrowArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+    @Field(() => [SupportRequestOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SupportRequestOrderByWithRelationInput>;
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [SupportRequestScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${SupportRequestScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstSupportRequestArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+    @Field(() => [SupportRequestOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SupportRequestOrderByWithRelationInput>;
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [SupportRequestScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${SupportRequestScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManySupportRequestArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+    @Field(() => [SupportRequestOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SupportRequestOrderByWithRelationInput>;
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [SupportRequestScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${SupportRequestScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniqueSupportRequestOrThrowArgs {
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:false})
+    @Type(() => SupportRequestWhereUniqueInput)
+    where!: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class FindUniqueSupportRequestArgs {
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:false})
+    @Type(() => SupportRequestWhereUniqueInput)
+    where!: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class SupportRequestAggregateArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+    @Field(() => [SupportRequestOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<SupportRequestOrderByWithRelationInput>;
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class SupportRequestCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    ticketId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    message?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    status?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class SupportRequestCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    ticketId!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    message!: string;
+    @Field(() => SupportStatusType, {nullable:true})
+    status?: `${SupportStatusType}`;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class SupportRequestCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    ticketId!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    message!: string;
+    @Field(() => SupportStatusType, {nullable:true})
+    status?: `${SupportStatusType}`;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@ArgsType()
+export class SupportRequestGroupByArgs {
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+    @Field(() => [SupportRequestOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<SupportRequestOrderByWithAggregationInput>;
+    @Field(() => [SupportRequestScalarFieldEnum], {nullable:false})
+    by!: Array<`${SupportRequestScalarFieldEnum}`>;
+    @Field(() => SupportRequestScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof SupportRequestScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class SupportRequestMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    ticketId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    message?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    status?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class SupportRequestMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    ticketId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    message?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    status?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class SupportRequestOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    ticketId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    message?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    status?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => SupportRequestCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof SupportRequestCountOrderByAggregateInput>;
+    @Field(() => SupportRequestMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof SupportRequestMaxOrderByAggregateInput>;
+    @Field(() => SupportRequestMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof SupportRequestMinOrderByAggregateInput>;
+}
+
+@InputType()
+export class SupportRequestOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    ticketId?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    message?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    status?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class SupportRequestScalarWhereWithAggregatesInput {
+    @Field(() => [SupportRequestScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<SupportRequestScalarWhereWithAggregatesInput>;
+    @Field(() => [SupportRequestScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<SupportRequestScalarWhereWithAggregatesInput>;
+    @Field(() => [SupportRequestScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<SupportRequestScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    ticketId?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    email?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    message?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => EnumSupportStatusTypeWithAggregatesFilter, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class SupportRequestUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    ticketId!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    message!: string;
+    @Field(() => SupportStatusType, {nullable:true})
+    status?: `${SupportStatusType}`;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+}
+
+@InputType()
+export class SupportRequestUncheckedUpdateManyInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    ticketId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    message?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumSupportStatusTypeFieldUpdateOperationsInput, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class SupportRequestUncheckedUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    ticketId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    message?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumSupportStatusTypeFieldUpdateOperationsInput, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class SupportRequestUpdateManyMutationInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    ticketId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    message?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumSupportStatusTypeFieldUpdateOperationsInput, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class SupportRequestUpdateInput {
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    ticketId?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    message?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => EnumSupportStatusTypeFieldUpdateOperationsInput, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+}
+
+@InputType()
+export class SupportRequestWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    AND?: Array<SupportRequestWhereInput>;
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    OR?: Array<SupportRequestWhereInput>;
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    NOT?: Array<SupportRequestWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    ticketId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    email?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    message?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumSupportStatusTypeFilter, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@InputType()
+export class SupportRequestWhereInput {
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    AND?: Array<SupportRequestWhereInput>;
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    OR?: Array<SupportRequestWhereInput>;
+    @Field(() => [SupportRequestWhereInput], {nullable:true})
+    NOT?: Array<SupportRequestWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    ticketId?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    email?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    message?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumSupportStatusTypeFilter, {nullable:true})
+    status?: InstanceType<typeof EnumSupportStatusTypeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+}
+
+@ObjectType()
+export class SupportRequest {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => String, {nullable:false})
+    userId!: string;
+    @Field(() => String, {nullable:false})
+    ticketId!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    message!: string;
+    @Field(() => SupportStatusType, {defaultValue:'OPEN',nullable:false})
+    status!: `${SupportStatusType}`;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+}
+
+@ArgsType()
+export class UpdateManySupportRequestArgs {
+    @Field(() => SupportRequestUpdateManyMutationInput, {nullable:false})
+    @Type(() => SupportRequestUpdateManyMutationInput)
+    data!: InstanceType<typeof SupportRequestUpdateManyMutationInput>;
+    @Field(() => SupportRequestWhereInput, {nullable:true})
+    @Type(() => SupportRequestWhereInput)
+    where?: InstanceType<typeof SupportRequestWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOneSupportRequestArgs {
+    @Field(() => SupportRequestUpdateInput, {nullable:false})
+    @Type(() => SupportRequestUpdateInput)
+    data!: InstanceType<typeof SupportRequestUpdateInput>;
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:false})
+    @Type(() => SupportRequestWhereUniqueInput)
+    where!: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+}
+
+@ArgsType()
+export class UpsertOneSupportRequestArgs {
+    @Field(() => SupportRequestWhereUniqueInput, {nullable:false})
+    @Type(() => SupportRequestWhereUniqueInput)
+    where!: Prisma.AtLeast<SupportRequestWhereUniqueInput, 'id'>;
+    @Field(() => SupportRequestCreateInput, {nullable:false})
+    @Type(() => SupportRequestCreateInput)
+    create!: InstanceType<typeof SupportRequestCreateInput>;
+    @Field(() => SupportRequestUpdateInput, {nullable:false})
+    @Type(() => SupportRequestUpdateInput)
+    update!: InstanceType<typeof SupportRequestUpdateInput>;
+}
+
+@ArgsType()
 export class CreateManySupportTicketArgs {
     @Field(() => [SupportTicketCreateManyInput], {nullable:false})
     @Type(() => SupportTicketCreateManyInput)
@@ -49716,6 +53357,490 @@ export class TextCampusChatPayload {
     title!: string | null;
     @Field(() => String, {nullable:false})
     text!: string;
+}
+
+@ArgsType()
+export class CreateManyUniversityAdminArgs {
+    @Field(() => [UniversityAdminCreateManyInput], {nullable:false})
+    @Type(() => UniversityAdminCreateManyInput)
+    data!: Array<UniversityAdminCreateManyInput>;
+}
+
+@ArgsType()
+export class CreateOneUniversityAdminArgs {
+    @Field(() => UniversityAdminCreateInput, {nullable:false})
+    @Type(() => UniversityAdminCreateInput)
+    data!: InstanceType<typeof UniversityAdminCreateInput>;
+}
+
+@ArgsType()
+export class DeleteManyUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+}
+
+@ArgsType()
+export class DeleteOneUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:false})
+    @Type(() => UniversityAdminWhereUniqueInput)
+    where!: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+}
+
+@ArgsType()
+export class FindFirstUniversityAdminOrThrowArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UniversityAdminOrderByWithRelationInput>;
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [UniversityAdminScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${UniversityAdminScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindFirstUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UniversityAdminOrderByWithRelationInput>;
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [UniversityAdminScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${UniversityAdminScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindManyUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UniversityAdminOrderByWithRelationInput>;
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+    @Field(() => [UniversityAdminScalarFieldEnum], {nullable:true})
+    distinct?: Array<`${UniversityAdminScalarFieldEnum}`>;
+}
+
+@ArgsType()
+export class FindUniqueUniversityAdminOrThrowArgs {
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:false})
+    @Type(() => UniversityAdminWhereUniqueInput)
+    where!: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+}
+
+@ArgsType()
+export class FindUniqueUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:false})
+    @Type(() => UniversityAdminWhereUniqueInput)
+    where!: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+}
+
+@ArgsType()
+export class UniversityAdminAggregateArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminOrderByWithRelationInput], {nullable:true})
+    orderBy?: Array<UniversityAdminOrderByWithRelationInput>;
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:true})
+    cursor?: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class UniversityAdminCountOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userType?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    password?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class UniversityAdminCreateManyInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => UniversityAdminType, {nullable:false})
+    userType!: `${UniversityAdminType}`;
+    @Field(() => String, {nullable:false})
+    userName!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    password!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => UniversityAdminType, {nullable:false})
+    userType!: `${UniversityAdminType}`;
+    @Field(() => String, {nullable:false})
+    userName!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    password!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@ArgsType()
+export class UniversityAdminGroupByArgs {
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminOrderByWithAggregationInput], {nullable:true})
+    orderBy?: Array<UniversityAdminOrderByWithAggregationInput>;
+    @Field(() => [UniversityAdminScalarFieldEnum], {nullable:false})
+    by!: Array<`${UniversityAdminScalarFieldEnum}`>;
+    @Field(() => UniversityAdminScalarWhereWithAggregatesInput, {nullable:true})
+    having?: InstanceType<typeof UniversityAdminScalarWhereWithAggregatesInput>;
+    @Field(() => Int, {nullable:true})
+    take?: number;
+    @Field(() => Int, {nullable:true})
+    skip?: number;
+}
+
+@InputType()
+export class UniversityAdminMaxOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userType?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    password?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class UniversityAdminMinOrderByAggregateInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userType?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    password?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+}
+
+@InputType()
+export class UniversityAdminOrderByWithAggregationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userType?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    password?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => UniversityAdminCountOrderByAggregateInput, {nullable:true})
+    _count?: InstanceType<typeof UniversityAdminCountOrderByAggregateInput>;
+    @Field(() => UniversityAdminMaxOrderByAggregateInput, {nullable:true})
+    _max?: InstanceType<typeof UniversityAdminMaxOrderByAggregateInput>;
+    @Field(() => UniversityAdminMinOrderByAggregateInput, {nullable:true})
+    _min?: InstanceType<typeof UniversityAdminMinOrderByAggregateInput>;
+}
+
+@InputType()
+export class UniversityAdminOrderByWithRelationInput {
+    @Field(() => SortOrder, {nullable:true})
+    id?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userType?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    userName?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    email?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    password?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    createdAt?: `${SortOrder}`;
+    @Field(() => SortOrder, {nullable:true})
+    updatedAt?: `${SortOrder}`;
+    @Field(() => SessionOrderByCompositeAggregateInput, {nullable:true})
+    sessions?: InstanceType<typeof SessionOrderByCompositeAggregateInput>;
+}
+
+@InputType()
+export class UniversityAdminScalarWhereWithAggregatesInput {
+    @Field(() => [UniversityAdminScalarWhereWithAggregatesInput], {nullable:true})
+    AND?: Array<UniversityAdminScalarWhereWithAggregatesInput>;
+    @Field(() => [UniversityAdminScalarWhereWithAggregatesInput], {nullable:true})
+    OR?: Array<UniversityAdminScalarWhereWithAggregatesInput>;
+    @Field(() => [UniversityAdminScalarWhereWithAggregatesInput], {nullable:true})
+    NOT?: Array<UniversityAdminScalarWhereWithAggregatesInput>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    id?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => EnumUniversityAdminTypeWithAggregatesFilter, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    userName?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    email?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => StringWithAggregatesFilter, {nullable:true})
+    password?: InstanceType<typeof StringWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+    @Field(() => DateTimeWithAggregatesFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeWithAggregatesFilter>;
+}
+
+@InputType()
+export class UniversityAdminUncheckedCreateInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => UniversityAdminType, {nullable:false})
+    userType!: `${UniversityAdminType}`;
+    @Field(() => String, {nullable:false})
+    userName!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    password!: string;
+    @Field(() => Date, {nullable:true})
+    createdAt?: Date | string;
+    @Field(() => Date, {nullable:true})
+    updatedAt?: Date | string;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminUncheckedUpdateManyInput {
+    @Field(() => EnumUniversityAdminTypeFieldUpdateOperationsInput, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    password?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminUncheckedUpdateInput {
+    @Field(() => EnumUniversityAdminTypeFieldUpdateOperationsInput, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    password?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminUpdateManyMutationInput {
+    @Field(() => EnumUniversityAdminTypeFieldUpdateOperationsInput, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    password?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminUpdateInput {
+    @Field(() => EnumUniversityAdminTypeFieldUpdateOperationsInput, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    userName?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    email?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => StringFieldUpdateOperationsInput, {nullable:true})
+    password?: InstanceType<typeof StringFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => DateTimeFieldUpdateOperationsInput, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFieldUpdateOperationsInput>;
+    @Field(() => [SessionCreateInput], {nullable:true})
+    sessions?: Array<SessionCreateInput>;
+}
+
+@InputType()
+export class UniversityAdminWhereUniqueInput {
+    @Field(() => String, {nullable:true})
+    id?: string;
+    @Field(() => String, {nullable:true})
+    email?: string;
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    AND?: Array<UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    OR?: Array<UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    NOT?: Array<UniversityAdminWhereInput>;
+    @Field(() => EnumUniversityAdminTypeFilter, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userName?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    password?: InstanceType<typeof StringFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => [SessionObjectEqualityInput], {nullable:true})
+    sessions?: Array<SessionObjectEqualityInput>;
+}
+
+@InputType()
+export class UniversityAdminWhereInput {
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    AND?: Array<UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    OR?: Array<UniversityAdminWhereInput>;
+    @Field(() => [UniversityAdminWhereInput], {nullable:true})
+    NOT?: Array<UniversityAdminWhereInput>;
+    @Field(() => StringFilter, {nullable:true})
+    id?: InstanceType<typeof StringFilter>;
+    @Field(() => EnumUniversityAdminTypeFilter, {nullable:true})
+    userType?: InstanceType<typeof EnumUniversityAdminTypeFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    userName?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    email?: InstanceType<typeof StringFilter>;
+    @Field(() => StringFilter, {nullable:true})
+    password?: InstanceType<typeof StringFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    createdAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => DateTimeFilter, {nullable:true})
+    updatedAt?: InstanceType<typeof DateTimeFilter>;
+    @Field(() => [SessionObjectEqualityInput], {nullable:true})
+    sessions?: Array<SessionObjectEqualityInput>;
+}
+
+@ObjectType()
+export class UniversityAdmin {
+    @Field(() => ID, {nullable:false})
+    id!: string;
+    @Field(() => UniversityAdminType, {nullable:false})
+    userType!: `${UniversityAdminType}`;
+    @Field(() => String, {nullable:false})
+    userName!: string;
+    @Field(() => String, {nullable:false})
+    email!: string;
+    @Field(() => String, {nullable:false})
+    password!: string;
+    @Field(() => Date, {nullable:false})
+    createdAt!: Date;
+    @Field(() => Date, {nullable:false})
+    updatedAt!: Date;
+    @Field(() => [Session], {nullable:true})
+    sessions?: Array<Session>;
+}
+
+@ArgsType()
+export class UpdateManyUniversityAdminArgs {
+    @Field(() => UniversityAdminUpdateManyMutationInput, {nullable:false})
+    @Type(() => UniversityAdminUpdateManyMutationInput)
+    data!: InstanceType<typeof UniversityAdminUpdateManyMutationInput>;
+    @Field(() => UniversityAdminWhereInput, {nullable:true})
+    @Type(() => UniversityAdminWhereInput)
+    where?: InstanceType<typeof UniversityAdminWhereInput>;
+}
+
+@ArgsType()
+export class UpdateOneUniversityAdminArgs {
+    @Field(() => UniversityAdminUpdateInput, {nullable:false})
+    @Type(() => UniversityAdminUpdateInput)
+    data!: InstanceType<typeof UniversityAdminUpdateInput>;
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:false})
+    @Type(() => UniversityAdminWhereUniqueInput)
+    where!: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+}
+
+@ArgsType()
+export class UpsertOneUniversityAdminArgs {
+    @Field(() => UniversityAdminWhereUniqueInput, {nullable:false})
+    @Type(() => UniversityAdminWhereUniqueInput)
+    where!: Prisma.AtLeast<UniversityAdminWhereUniqueInput, 'id' | 'email'>;
+    @Field(() => UniversityAdminCreateInput, {nullable:false})
+    @Type(() => UniversityAdminCreateInput)
+    create!: InstanceType<typeof UniversityAdminCreateInput>;
+    @Field(() => UniversityAdminUpdateInput, {nullable:false})
+    @Type(() => UniversityAdminUpdateInput)
+    update!: InstanceType<typeof UniversityAdminUpdateInput>;
 }
 
 @ArgsType()

@@ -17,7 +17,6 @@ export class PaymentsResolver {
     @Args("orderBy", { nullable: true })
     orderBy?: PaymentOrderByWithRelationInput
   ) {
-    console.log({ where, take, skip, orderBy });
     return this.paymentsService.getAllPayments(where, take, skip, orderBy);
   }
 }
