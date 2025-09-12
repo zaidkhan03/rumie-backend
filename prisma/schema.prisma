@@ -1590,3 +1590,124 @@ model ProductReport {
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt
 }
+
+// UNIVERSITY Schema
+
+enum UniversityAdminType {
+  ADMIN
+  INSTITUTION
+}
+
+type Session {
+  token       String
+  deviceModel String
+  valid       Boolean  @default(true)
+  started     DateTime @default(now())
+  lastSeen    DateTime @default(now())
+}
+
+model UniversityAdmin {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  userType  UniversityAdminType
+  userName  String
+  email     String    @unique
+  password  String
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  sessions  Session[]
+}
+
+model PassCode {
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String   @db.ObjectId // Institution ID
+  passCode  String
+  isPassed  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @default(now()) @updatedAt
+}
+
+enum CampaignType {
+  LISTING
+  BANNER
+  POPUP
+}
+
+enum Tag {
+  EVENT
+  SPORT
+  RESOURCES
+}
+
+model Campaign {
+  id                  String       @id @default(auto()) @map("_id") @db.ObjectId
+  userId              String       @db.ObjectId // Institution ID
+  title               String
+  url                 String?
+  location            String?
+  locationCoordinates String?
+  type                CampaignType[]
+  tag                 Tag
+  localistId          String?
+  campaignImage       String?
+  campaignStartAt     Int
+  campaignEndAt       Int
+  campaignDuration    Int
+  eventDayTime        Int
+  showOnApp           Boolean      @default(false)
+  createdAt           DateTime     @default(now())
+  updatedAt           DateTime     @default(now()) @updatedAt
+}
+
+model Institution {
+  id                  String    @id @default(auto()) @map("_id") @db.ObjectId
+  institutionName     String
+  slug                String    @unique
+  passCode            String
+  logo                String?
+  schoolColor         String?
+  localistCalendarUrl String?
+  sessions            Session[]
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+}
+
+model SupportRequest {
+  id        String            @id @default(auto()) @map("_id") @db.ObjectId
+  userId    String            @db.ObjectId // Institution ID
+  ticketId  String
+  email     String
+  message   String
+  status    SupportStatusType @default(OPEN)
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt
+}
+
+enum SupportStatusType {
+  OPEN
+  IN_PROGRESS
+  CLOSED
+}
+
+model Event {
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  clientId        String   @unique
+  campaignId      String
+  userId          String
+  gender          Gender
+  eduInstituteId  String
+  platform        String
+  type            EventType
+  timestamp       DateTime
+  screen          String
+  batch           String
+  createdAt DateTime          @default(now())
+  updatedAt DateTime          @updatedAt  
+}
+
+
+
+enum EventType {
+  impression
+  click
+  ctaClick
+}
